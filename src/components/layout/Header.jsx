@@ -39,15 +39,15 @@ function Header() {
           <span className="brand-text">KOMODROMOS GROUP</span>
         </a>
 
-        <div className="header-actions">
-          <nav className="desktop-nav" aria-label="Main Navigation">
-            {menuItems.map((item) => (
-              <a key={item.label} href={item.link}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
+        <nav className="desktop-nav" aria-label="Main Navigation">
+          {menuItems.map((item) => (
+            <a key={item.label} href={item.link}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
 
+        <div className="header-actions">
           <div className="social-links" aria-label="Header social links">
             <a
               className="social-link whatsapp"
@@ -97,14 +97,25 @@ function Header() {
         <Container className="premium-bar-inner">
           <span className="premium-bar-title">Premium Services</span>
           <div className="premium-bar-items">
-            {premiumHighlights.map((item) => (
-              <span
-                key={item.label}
-                className={`premium-bar-item premium-bar-item-${item.tone}`}
-              >
-                {item.label}
-              </span>
-            ))}
+            <div className="premium-bar-track">
+              {premiumHighlights.map((item) => (
+                <span
+                  key={item.label}
+                  className={`premium-bar-item premium-bar-item-${item.tone}`}
+                >
+                  {item.label}
+                </span>
+              ))}
+              {premiumHighlights.map((item) => (
+                <span
+                  key={`${item.label}-clone`}
+                  className={`premium-bar-item premium-bar-item-${item.tone}`}
+                  aria-hidden="true"
+                >
+                  {item.label}
+                </span>
+              ))}
+            </div>
           </div>
         </Container>
       </div>
