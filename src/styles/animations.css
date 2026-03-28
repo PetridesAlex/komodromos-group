@@ -1,0 +1,32 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(52px) scale(0.985);
+  filter: blur(6px);
+  visibility: hidden;
+  will-change: opacity, transform, filter;
+  transition: opacity var(--duration-base) var(--ease-premium),
+    transform var(--duration-base) var(--ease-premium),
+    filter var(--duration-base) var(--ease-premium),
+    visibility 0s linear var(--duration-base);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  visibility: visible;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible,
+  .btn,
+  .main-nav a::after,
+  .service-image img {
+    transition: none;
+    transform: none;
+    filter: none;
+    visibility: visible;
+  }
+}

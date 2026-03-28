@@ -1,0 +1,31 @@
+:root {
+  --color-bg: #0b0f16;
+  --color-surface: #121926;
+  --color-text: #ffffff;
+  --color-text-secondary: #d0d9e8;
+  --color-divider: #29364d;
+  --color-accent: #9fc7ff;
+  --color-accent-deep: #76a9f4;
+  --color-logo-blue: #162238;
+  --color-logo-blue-deep: #223554;
+  --color-header-bg: #0d1627;
+  --color-header-bg-soft: #1a2a42;
+  --color-header-text: #ffffff;
+
+  --font-heading: "Manrope", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Manrope", "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --container-max: 1200px;
+  --section-space: clamp(4.5rem, 9vw, 8.5rem);
+  --space-xs: 0.5rem;
+  --space-sm: 0.875rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  --radius-soft: 2px;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 200ms;
+  --duration-base: 420ms;
+  --header-height: 86px;
+}
