@@ -9,8 +9,8 @@ function Footer() {
         <p>Copyright {year} Komodromos Group</p>
         <div className="footer-right">
           <div className="footer-links">
-            <a href="#top">Top</a>
-            <a href="#contact">Contact</a>
+            <a href="/#top">Top</a>
+            <a href="/contact">Contact</a>
           </div>
 
           <div className="footer-socials" aria-label="Footer social links">

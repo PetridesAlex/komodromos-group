@@ -1,97 +1,97 @@
 export const servicesData = [
   {
-    id: "vip-lifestyle",
-    title: "VIP & Lifestyle Services",
+    id: "vip-services",
+    title: "VIP Services",
     category: "Private Client Experience",
     description:
       "Discreet lifestyle management crafted for individuals and families who expect precision, privacy, and exceptional standards.",
-    image:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/vip-service.webp",
+    imagePosition: "50% 42%",
     services: ["Private concierge", "Travel planning", "Personal shopping"],
   },
   {
-    id: "wedding-events",
-    title: "Wedding & Event Services",
+    id: "wedding-services",
+    title: "Wedding Services",
     category: "Signature Occasions",
     description:
       "Concept-to-execution event direction for milestone celebrations, destination weddings, and executive experiences.",
-    image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/wedding-service.webp",
+    imagePosition: "50% 40%",
     services: ["Creative direction", "Guest management", "Venue production"],
   },
   {
-    id: "pool-outdoor",
-    title: "Pool & Outdoor Living Solutions",
+    id: "swimming-pool-garden-services",
+    title: "Swimming Pool & Garden Services",
     category: "Architectural Outdoor Design",
     description:
       "Tailored exterior environments designed for leisure, hospitality, and long-term property value.",
-    image:
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/swimming-garden-service.webp",
+    imagePosition: "50% 50%",
     services: ["Pool concepts", "Landscape planning", "Outdoor infrastructure"],
   },
   {
-    id: "property-maintenance",
-    title: "Property Maintenance & Technical Services",
+    id: "building-technician-services",
+    title: "Building Technician Services",
     category: "Operational Excellence",
     description:
       "Integrated maintenance and engineering support that keeps high-value assets performing to premium standards.",
-    image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/building-technician-service.webp",
+    imagePosition: "52% 44%",
     services: ["Facility audits", "Technical servicing", "Preventive plans"],
   },
   {
-    id: "storage-logistics",
-    title: "Storage & Logistics Solutions",
+    id: "storage2rent",
+    title: "Storage2Rent",
     category: "Secure Logistics",
     description:
       "Professional warehousing and transport coordination with attention to timing, protection, and reliability.",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/rent-storage-service.webp",
+    imagePosition: "50% 48%",
     services: ["Inventory flow", "Secure storage", "Distribution support"],
   },
   {
-    id: "consulting-advisory",
-    title: "Business Consulting & Advisory",
+    id: "business-consultants",
+    title: "Business Consultant's",
     category: "Strategic Advisory",
     description:
       "Executive advisory services helping organizations scale with clarity, governance, and market confidence.",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/business-consultant-service.webp",
+    imagePosition: "50% 36%",
     services: ["Strategy design", "Growth modeling", "Performance oversight"],
   },
   {
-    id: "aviation-career",
-    title: "Aviation Services & Career Development",
+    id: "aviation-agency-services",
+    title: "Aviation Agency Services",
     category: "Aviation Excellence",
     description:
       "Specialized aviation solutions and development pathways for professionals and organizations in the sector.",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/aviation-service.webp",
+    imagePosition: "50% 50%",
     services: ["Crew development", "Flight support", "Career mentoring"],
   },
   {
-    id: "real-estate",
-    title: "Real Estate Development & Investment",
+    id: "astreal-developers",
+    title: "Astreal Developers",
     category: "Capital & Development",
     description:
       "End-to-end real estate structuring, from opportunity analysis to development strategy and portfolio growth.",
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/astreal-developer-service.webp",
+    imagePosition: "52% 45%",
     services: ["Project planning", "Investment advisory", "Asset management"],
   },
   {
-    id: "human-resources",
-    title: "Human Resources & Talent Management",
+    id: "human-resources-management",
+    title: "Human Resources Management",
     category: "People & Culture",
     description:
       "Human capital services that align talent strategy, leadership development, and organizational outcomes.",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/services-cover/human-resources-service.webp",
+    imagePosition: "50% 35%",
     services: ["Executive search", "HR frameworks", "Talent development"],
   },
   {
-    id: "accounting-tax-legal",
-    title: "Accounting, Tax & Legal Support",
+    id: "tax-accounting-services",
+    title: "Tax & Accounting Services",
     category: "Corporate Compliance",
     description:
       "Trusted financial and legal support ensuring transparent operations, compliant structures, and informed decisions.",
@@ -100,8 +100,8 @@ export const servicesData = [
     services: ["Tax planning", "Financial reporting", "Regulatory advisory"],
   },
   {
-    id: "fashion-retail",
-    title: "Fashion & Luxury Retail",
+    id: "wedding-dress-services-janchapelle",
+    title: "Wedding Dress Services (Janchapelle)",
     category: "Luxury Commerce",
     description:
       "Brand and retail consulting crafted for premium fashion businesses with global positioning ambitions.",
@@ -110,8 +110,8 @@ export const servicesData = [
     services: ["Retail strategy", "Brand experience", "Market expansion"],
   },
   {
-    id: "legal-dispute",
-    title: "Legal & Dispute Resolution",
+    id: "adr-dispute-mediation-services",
+    title: "ADR Dispute Mediation Services",
     category: "Legal Protection",
     description:
       "Specialist representation and dispute advisory focused on protecting business continuity and reputation.",

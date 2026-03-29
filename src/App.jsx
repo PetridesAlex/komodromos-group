@@ -1,24 +1,17 @@
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-import HeroSection from './components/sections/HeroSection'
-import AboutSection from './components/sections/AboutSection'
-import ServicesSection from './components/sections/ServicesSection'
-import StatsSection from './components/sections/StatsSection'
-import TeamSection from './components/sections/TeamSection'
-import ContactSection from './components/sections/ContactSection'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import ContactPage from './pages/ContactPage'
 
 function App() {
   return (
     <div className="site">
       <Header />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <StatsSection />
-        <TeamSection />
-        <ContactSection />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
       <Footer />
     </div>
   )

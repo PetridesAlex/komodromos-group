@@ -3,10 +3,10 @@ import StaggeredMenu from "../ui/StaggeredMenu"
 import { servicesData } from "../../data/services"
 
 const menuItems = [
-  { label: "Home", ariaLabel: "Go to home page", link: "#top", description: "Main overview" },
-  { label: "About", ariaLabel: "Learn about us", link: "#about", description: "Who we are" },
-  { label: "Services", ariaLabel: "View our services", link: "#services", description: "Our group divisions" },
-  { label: "Contact", ariaLabel: "Get in touch", link: "#contact", description: "Start a conversation" },
+  { label: "Home", ariaLabel: "Go to home page", link: "/#top", description: "Main overview" },
+  { label: "About", ariaLabel: "Learn about us", link: "/#about", description: "Who we are" },
+  { label: "Services", ariaLabel: "View our services", link: "/#services", description: "Our group divisions" },
+  { label: "Contact", ariaLabel: "Get in touch", link: "/contact", description: "Start a conversation" },
 ]
 
 const socialItems = [
@@ -21,21 +21,21 @@ const companyItems = servicesData.map((service) => ({
   id: service.id,
   title: service.title,
   category: service.category,
-  link: "#services",
+  link: "/#services",
 }))
 
 function Header() {
   const premiumHighlights = [
-    { label: "VIP & Lifestyle Services", tone: "vip" },
-    { label: "Real Estate Development & Investment", tone: "estate" },
-    { label: "Business Consulting & Advisory", tone: "consulting" },
-    { label: "Legal & Dispute Resolution", tone: "legal" },
+    { label: "VIP Services", tone: "vip" },
+    { label: "Astreal Developers", tone: "estate" },
+    { label: "Business Consultant's", tone: "consulting" },
+    { label: "ADR Dispute Mediation Services", tone: "legal" },
   ]
 
   return (
     <header className="site-header">
       <Container className="header-inner">
-        <a className="brand" href="#top" aria-label="Komodromos Group">
+        <a className="brand" href="/#top" aria-label="Komodromos Group">
           <span className="brand-text">KOMODROMOS GROUP</span>
         </a>
 

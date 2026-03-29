@@ -22,7 +22,10 @@ function ServicesSection() {
               className="service-item"
               delay={(index % 4) * 70}
             >
-              <div className="service-image">
+              <div
+                className="service-image"
+                style={{ "--service-image-position": service.imagePosition ?? "50% 50%" }}
+              >
                 <img src={service.image} alt={service.title} loading="lazy" />
               </div>
               <div className="service-content">
@@ -34,7 +37,7 @@ function ServicesSection() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-                <a className="service-link" href="#contact">
+                <a className="service-link" href="/contact">
                   Request Details
                 </a>
               </div>
