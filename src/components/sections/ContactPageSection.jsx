@@ -60,7 +60,7 @@ function ContactPageSection() {
             <p className="section-label">Direct Contact</p>
 
             <div className="office-card">
-              <h3>Main office Limassol</h3>
+              <h3 className="office-title-main">Main office Limassol</h3>
               <p className="office-address">
                 John Kennedy Street Iris House, 4th Floor, 440A, Neapolis, 3106 Limassol
                 Cyprus
@@ -88,7 +88,7 @@ function ContactPageSection() {
             </div>
 
             <div className="office-card">
-              <h3>Larnaca office</h3>
+              <h3 className="office-title-main">Larnaca office</h3>
               <p className="office-address">9 Ioannou Gladstonos Street, 6023 Larnaca Cyprus</p>
               <ul className="office-phones">
                 <li>
@@ -110,9 +110,6 @@ function ContactPageSection() {
                   <a href="tel:+35796000236">+357 96 00 0236</a>
                 </li>
               </ul>
-              <p className="office-email">
-                <a href="mailto:info@komodromosgroup.com">info@komodromosgroup.com</a>
-              </p>
             </div>
           </Reveal>
         </div>

@@ -5,7 +5,7 @@ function HeroSection() {
   return (
     <section id="top" className="hero">
       <Reveal className="hero-content">
-        <h1 className="hero-title">Welcome to Komodromos Group of Companies</h1>
+        <h1 className="hero-title">Komodromos Group of Companies</h1>
         <p className="hero-subtitle">
           Komodromos Group unites specialist companies across lifestyle, business,
           property, legal, and investment services.

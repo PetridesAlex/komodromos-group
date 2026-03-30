@@ -393,7 +393,10 @@
   place-items: center;
   padding: clamp(1.4rem, 3.2vw, 2.4rem) clamp(2rem, 6vw, 4.5rem);
   overflow: hidden;
-  background: url("/images/hero/komodromos-group-hero.webp") center 36% / cover no-repeat;
+  background:
+    radial-gradient(circle at 16% 14%, rgba(55, 88, 145, 0.44), transparent 42%),
+    radial-gradient(circle at 82% 20%, rgba(151, 112, 46, 0.28), transparent 38%),
+    url("/images/hero/komodromos-group-hero.webp") center 36% / cover no-repeat;
 }
 
 .hero::before {
@@ -403,11 +406,21 @@
   background:
     linear-gradient(
       102deg,
-      rgba(6, 12, 24, 0.78) 0%,
-      rgba(8, 18, 36, 0.54) 38%,
-      rgba(12, 24, 46, 0.34) 68%,
-      rgba(14, 28, 52, 0.2) 100%
+      rgba(5, 11, 24, 0.72) 0%,
+      rgba(9, 22, 44, 0.48) 38%,
+      rgba(22, 36, 64, 0.22) 68%,
+      rgba(27, 30, 42, 0.14) 100%
     );
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(215, 180, 118, 0.1), transparent 34%),
+    radial-gradient(circle at 68% 78%, rgba(37, 88, 173, 0.2), transparent 36%);
   pointer-events: none;
 }
 
@@ -427,10 +440,13 @@
   margin: 0;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-size: clamp(2.2rem, 5.3vw, 4.9rem);
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
   line-height: 0.96;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.28),
+    0 14px 30px rgba(12, 20, 38, 0.38);
   white-space: normal;
   text-wrap: balance;
 }
@@ -796,6 +812,13 @@
   color: var(--color-text);
 }
 
+.office-title-main {
+  font-size: 1.02rem !important;
+  letter-spacing: 0.14em;
+  color: #f1cb8a !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+}
+
 .office-card p {
   margin: 0.55rem 0 0;
   font-size: 0.88rem;
@@ -847,9 +870,27 @@
 }
 
 .office-email a {
-  color: color-mix(in srgb, var(--color-accent) 68%, white 32%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.48rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 60%, var(--color-divider));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  color: color-mix(in srgb, var(--color-accent) 82%, white 18%);
+  font-weight: 800;
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.office-email a::before {
+  content: "Email";
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-accent) 50%, white 50%);
   font-weight: 700;
-  letter-spacing: 0.01em;
 }
 
 .contact-details a {

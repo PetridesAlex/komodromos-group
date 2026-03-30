@@ -2,12 +2,12 @@
   position: relative;
   z-index: 9999;
   pointer-events: auto;
-  --sm-menu-gold: #cfa65a;
-  --sm-menu-gold-soft: #e4c992;
-  --sm-menu-ink: #1c1610;
-  --sm-menu-surface: #f7f0e4;
-  --sm-menu-surface-2: #efe2cb;
-  --sm-menu-border: #d5bd91;
+  --sm-menu-gold: #d2ab63;
+  --sm-menu-gold-soft: #ebd4aa;
+  --sm-menu-ink: #f6efe2;
+  --sm-menu-surface: #111a2a;
+  --sm-menu-surface-2: #231b2e;
+  --sm-menu-border: #5f4f33;
 }
 
 .sm-toggle {
@@ -119,9 +119,11 @@
   min-height: calc(100dvh - var(--header-height));
   max-height: calc(100dvh - var(--header-height));
   background:
+    radial-gradient(circle at 18% 10%, rgba(72, 101, 154, 0.2), transparent 42%),
+    radial-gradient(circle at 84% 14%, rgba(190, 140, 58, 0.18), transparent 40%),
     linear-gradient(155deg, var(--sm-menu-surface), var(--sm-menu-surface-2));
-  border-left: 1px solid color-mix(in srgb, var(--sm-menu-border) 90%, transparent);
-  box-shadow: -18px 0 30px rgba(26, 18, 7, 0.22);
+  border-left: 1px solid color-mix(in srgb, var(--sm-menu-border) 78%, transparent);
+  box-shadow: -20px 0 36px rgba(8, 12, 24, 0.52);
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -182,7 +184,7 @@
 .sm-panel-item {
   position: relative;
   width: 100%;
-  color: var(--sm-menu-ink);
+  color: #f8f1e4;
   font-weight: 700;
   font-size: clamp(1.2rem, 2.7vw, 1.55rem);
   line-height: 1.05;
@@ -193,9 +195,9 @@
   gap: 0.2rem;
   text-decoration: none;
   padding: 0.65rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 44%, #5d6c8f 56%);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.38);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
   transition: background-color var(--duration-fast) var(--ease-premium),
     border-color var(--duration-fast) var(--ease-premium),
     transform var(--duration-fast) var(--ease-premium),
@@ -209,17 +211,17 @@
 }
 
 .sm-panel-item:hover {
-  border-color: color-mix(in srgb, var(--sm-menu-gold) 78%, transparent);
-  background: rgba(255, 255, 255, 0.72);
+  border-color: color-mix(in srgb, var(--sm-menu-gold) 82%, #8a98bc 18%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
   transform: translateY(-1px);
-  color: color-mix(in srgb, var(--sm-menu-gold) 82%, var(--sm-menu-ink));
+  color: color-mix(in srgb, var(--sm-menu-gold) 84%, white 16%);
 }
 
 .sm-panel-itemMeta {
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  color: color-mix(in srgb, var(--sm-menu-ink) 60%, #000 40%);
+  color: color-mix(in srgb, #d6def1 74%, var(--sm-menu-gold) 26%);
   font-weight: 700;
 }
 
@@ -251,19 +253,15 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: color-mix(in srgb, var(--sm-menu-gold) 92%, #6a4a16);
+  color: color-mix(in srgb, var(--sm-menu-gold) 88%, #f3e0bf 12%);
 }
 
 .sm-companies {
   margin-top: 0.5rem;
   padding: 0.95rem;
-  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 54%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 56%, #687aa3 44%);
   border-radius: 14px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.56),
-    rgba(255, 255, 255, 0.35)
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04));
 }
 
 .sm-companies-head {
@@ -275,17 +273,28 @@
 
 .sm-companies-title {
   margin: 0;
-  font-size: 0.86rem;
-  font-weight: 800;
-  color: var(--sm-menu-ink);
-  letter-spacing: 0.06em;
+  font-size: 0.94rem;
+  font-weight: 900;
+  color: #fff7ea;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--sm-menu-gold) 42%, rgba(255, 255, 255, 0.14)),
+    rgba(255, 255, 255, 0.08)
+  );
+  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 72%, #8a9cc0 28%);
+  border-radius: 8px;
+  padding: 0.35rem 0.55rem;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.35),
+    0 6px 14px rgba(0, 0, 0, 0.28);
 }
 
 .sm-companies-count {
   margin: 0;
   font-size: 0.68rem;
-  color: color-mix(in srgb, var(--sm-menu-ink) 66%, #000 34%);
+  color: color-mix(in srgb, #d7e0f2 74%, var(--sm-menu-gold) 26%);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
@@ -294,15 +303,15 @@
 .sm-companies-search {
   width: 100%;
   margin-top: 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 58%, transparent);
-  background: rgba(255, 255, 255, 0.84);
-  color: var(--sm-menu-ink);
+  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 58%, #6c7ca2 42%);
+  background: rgba(12, 19, 34, 0.56);
+  color: #f3ede2;
   border-radius: 8px;
   padding: 0.58rem 0.65rem;
 }
 
 .sm-companies-search::placeholder {
-  color: color-mix(in srgb, var(--sm-menu-ink) 56%, transparent);
+  color: color-mix(in srgb, #f3ede2 56%, transparent);
 }
 
 .sm-companies-list {
@@ -320,19 +329,19 @@
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sm-menu-gold) 48%, #667799 52%);
   border-radius: 8px;
   padding: 0.52rem 0.58rem;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.08);
   transition: background-color var(--duration-fast) var(--ease-premium),
     border-color var(--duration-fast) var(--ease-premium),
     transform var(--duration-fast) var(--ease-premium);
 }
 
 .sm-company-link:hover {
-  border-color: color-mix(in srgb, var(--sm-menu-gold) 78%, transparent);
-  background: rgba(255, 255, 255, 0.9);
+  border-color: color-mix(in srgb, var(--sm-menu-gold) 82%, #7f90b4 18%);
+  background: rgba(255, 255, 255, 0.16);
   transform: translateY(-1px);
 }
 
@@ -358,14 +367,14 @@
 
 .sm-company-name {
   font-size: 0.76rem;
-  color: var(--sm-menu-ink);
+  color: #f4efe6;
   font-weight: 700;
   line-height: 1.24;
 }
 
 .sm-company-category {
   font-size: 0.6rem;
-  color: color-mix(in srgb, var(--sm-menu-ink) 64%, #000 36%);
+  color: color-mix(in srgb, #d4deef 72%, var(--sm-menu-gold) 28%);
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
@@ -374,7 +383,7 @@
   border: 1px dashed color-mix(in srgb, var(--sm-menu-gold) 55%, transparent);
   border-radius: 8px;
   padding: 0.8rem;
-  color: color-mix(in srgb, var(--sm-menu-ink) 64%, #000 36%);
+  color: color-mix(in srgb, #d4deef 72%, var(--sm-menu-gold) 28%);
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -393,7 +402,7 @@
 .sm-socials-link {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--sm-menu-ink);
+  color: #f7efdf;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
