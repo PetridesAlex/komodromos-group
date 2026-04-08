@@ -16,10 +16,10 @@ export function useReveal() {
           }
         })
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
     )
 
-    const targets = el.querySelectorAll('.reveal')
+    const targets = el.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
     targets.forEach((t) => observer.observe(t))
 
     return () => observer.disconnect()

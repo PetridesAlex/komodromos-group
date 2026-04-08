@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
+import { useReveal } from '../hooks/useReveal'
 
 export default function ContactPage() {
+  const pageRef = useReveal()
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -30,7 +32,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="page">
+    <div className="page" ref={pageRef}>
       <header className="topbar">
         <div className="container topbar-inner">
           <Link to="/" className="logo">
@@ -73,8 +75,8 @@ export default function ContactPage() {
         <div className="contact-hero-glow contact-hero-glow-1" />
         <div className="contact-hero-glow contact-hero-glow-2" />
         <div className="container contact-hero-inner">
-          <p className="eyebrow">CONTACT US</p>
-          <h1>Let's Start a Conversation</h1>
+          <p className="eyebrow reveal">CONTACT US</p>
+          <h1 className="reveal reveal-delay-1">Let's Start a Conversation</h1>
           <p className="contact-hero-sub">
             Reach out for consultations, partnerships, or general inquiries.
             Our team responds within 24 hours.
@@ -84,7 +86,7 @@ export default function ContactPage() {
 
       <section className="contact-body">
         <div className="container contact-grid">
-          <div className="contact-info">
+          <div className="contact-info reveal-left reveal">
             <h2>Get In Touch</h2>
             <p>
               Whether you're exploring our services or ready to engage, we're
@@ -111,7 +113,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="contact-form-wrap">
+          <div className="contact-form-wrap reveal-right reveal">
             {submitted ? (
               <div className="contact-success">
                 <div className="contact-success-icon">✓</div>
