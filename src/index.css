@@ -470,7 +470,8 @@ a {
   position: relative;
   min-height: 100vh;
   display: grid;
-  align-items: center;
+  align-items: start;
+  padding-top: clamp(8rem, 18vh, 12rem);
   overflow: hidden;
 }
 
