@@ -6,6 +6,7 @@ import App from './App.tsx'
 import ContactPage from './components/ContactPage.tsx'
 import Preloader from './components/Preloader.tsx'
 import CookieBanner from './components/CookieBanner.tsx'
+import SocialHub from './components/SocialHub.tsx'
 
 function Root() {
   const [loaded, setLoaded] = useState(false)
@@ -22,6 +23,7 @@ function Root() {
           </Routes>
         </BrowserRouter>
         <CookieBanner />
+        <SocialHub />
       </div>
     </>
   )
