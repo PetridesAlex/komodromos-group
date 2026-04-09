@@ -6,6 +6,7 @@ import { useReveal } from '../hooks/useReveal'
 import { serviceCards } from '../data/serviceCards'
 
 export default function ContactPage() {
+  const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const pageRef = useReveal()
   useEffect(() => {
@@ -62,15 +63,36 @@ export default function ContactPage() {
           <Link to="/" className="logo">
             KOMODROMOS GROUP
           </Link>
-          <nav className="nav-links">
-            <Link to="/">HOME</Link>
-            <Link to="/#about">ABOUT</Link>
-            <Link to="/#services">SERVICES</Link>
-            <Link to="/contact" className="nav-active">
+          <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              HOME
+            </Link>
+            <Link to="/#about" onClick={() => setMenuOpen(false)}>
+              ABOUT
+            </Link>
+            <Link to="/#services" onClick={() => setMenuOpen(false)}>
+              SERVICES
+            </Link>
+            <Link
+              to="/contact"
+              className="nav-active"
+              onClick={() => setMenuOpen(false)}
+            >
               CONTACT
             </Link>
           </nav>
-          <TopbarSocialLinks variant="contact" />
+          <TopbarSocialLinks variant="desktop" />
+          <button
+            type="button"
+            className={`hamburger ${menuOpen ? 'hamburger-open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </header>
 

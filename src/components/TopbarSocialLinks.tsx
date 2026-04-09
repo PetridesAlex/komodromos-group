@@ -1,13 +1,11 @@
 import { socialLinks } from '../data/socialLinks'
 
-type Props = { variant: 'desktop' | 'mobile' | 'contact' }
+type Props = { variant: 'desktop' | 'mobile' }
 
 export default function TopbarSocialLinks({ variant }: Props) {
-  if (variant === 'desktop' || variant === 'contact') {
-    const wrapClass =
-      variant === 'contact' ? 'socials contact-topbar-socials' : 'socials desktop-socials'
+  if (variant === 'desktop') {
     return (
-      <div className={wrapClass}>
+      <div className="socials desktop-socials">
         {socialLinks.map((s) => (
           <a
             key={s.label}

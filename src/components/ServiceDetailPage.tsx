@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import Footer from './Footer'
 import TopbarSocialLinks from './TopbarSocialLinks'
@@ -7,6 +7,7 @@ import { getServiceBySlug } from '../data/serviceCards'
 import VipServicesGrid from './VipServicesGrid'
 
 export default function ServiceDetailPage() {
+  const [menuOpen, setMenuOpen] = useState(false)
   const { slug } = useParams<{ slug: string }>()
   const card = getServiceBySlug(slug)
   const pageRef = useReveal()
@@ -26,15 +27,36 @@ export default function ServiceDetailPage() {
           <Link to="/" className="logo">
             KOMODROMOS GROUP
           </Link>
-          <nav className="nav-links">
-            <Link to="/">HOME</Link>
-            <Link to="/#about">ABOUT</Link>
-            <Link to="/#services" className="nav-active">
+          <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              HOME
+            </Link>
+            <Link to="/#about" onClick={() => setMenuOpen(false)}>
+              ABOUT
+            </Link>
+            <Link
+              to="/#services"
+              className="nav-active"
+              onClick={() => setMenuOpen(false)}
+            >
               SERVICES
             </Link>
-            <Link to="/contact">CONTACT</Link>
+            <Link to="/contact" onClick={() => setMenuOpen(false)}>
+              CONTACT
+            </Link>
           </nav>
-          <TopbarSocialLinks variant="contact" />
+          <TopbarSocialLinks variant="desktop" />
+          <button
+            type="button"
+            className={`hamburger ${menuOpen ? 'hamburger-open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </header>
 
