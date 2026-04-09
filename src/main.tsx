@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import ContactPage from './components/ContactPage.tsx'
+import ServiceDetailPage from './components/ServiceDetailPage.tsx'
 import Preloader from './components/Preloader.tsx'
 import CookieBanner from './components/CookieBanner.tsx'
 import SocialHub from './components/SocialHub.tsx'
@@ -20,6 +21,7 @@ function Root() {
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
           </Routes>
         </BrowserRouter>
         <CookieBanner />

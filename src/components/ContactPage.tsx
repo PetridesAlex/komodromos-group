@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Footer from './Footer'
 import TopbarSocialLinks from './TopbarSocialLinks'
 import { useReveal } from '../hooks/useReveal'
+import { serviceCards } from '../data/serviceCards'
 
 export default function ContactPage() {
+  const location = useLocation()
   const pageRef = useReveal()
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -18,6 +20,27 @@ export default function ContactPage() {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    const s = location.state as {
+      serviceInterest?: string
+      vipSubService?: string
+    } | null
+    const interest = s?.serviceInterest
+    const vipSub = s?.vipSubService
+    if (typeof interest === 'string' && interest) {
+      setForm((f) => ({
+        ...f,
+        service: interest,
+        message:
+          typeof vipSub === 'string' &&
+          vipSub &&
+          !f.message.trim()
+            ? `Interested in: ${vipSub}`
+            : f.message,
+      }))
+    }
+  }, [location.state])
 
   function handleChange(
     e: React.ChangeEvent<
@@ -166,16 +189,12 @@ export default function ContactPage() {
                     onChange={handleChange}
                   >
                     <option value="">Select a service</option>
-                    <option>VIP Services</option>
-                    <option>Wedding Services</option>
-                    <option>Swimming Pool & Garden</option>
-                    <option>Storage2Rent</option>
-                    <option>Business Consulting</option>
-                    <option>Aviation Agency</option>
-                    <option>Astreal Developers</option>
-                    <option>Human Resources</option>
-                    <option>Tax & Accounting</option>
-                    <option>Other</option>
+                    {serviceCards.map((c) => (
+                      <option key={c.slug} value={c.title}>
+                        {c.title}
+                      </option>
+                    ))}
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
