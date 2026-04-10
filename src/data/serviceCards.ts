@@ -7,6 +7,9 @@ export type ServiceCard = {
   image: string
 }
 
+/** Homepage / service list covers in `public/images/services/companie-services-cover/` */
+const SVC_COVER = '/images/services/companie-services-cover'
+
 export const serviceCards: ServiceCard[] = [
   {
     slug: 'vip',
@@ -15,7 +18,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Discreet lifestyle management crafted for individuals and families who expect precision, privacy, and exceptional standards.',
     tags: ['PRIVATE CONCIERGE', 'TRAVEL PLANNING'],
-    image: '/images/services/vip-service.webp',
+    image: `${SVC_COVER}/luxury-travel.webp`,
   },
   {
     slug: 'wedding',
@@ -24,7 +27,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Concept-to-execution event direction for milestone celebrations, destination weddings, and executive experiences.',
     tags: ['CREATIVE DIRECTION', 'GUEST MANAGEMENT', 'VENUE PRODUCTION'],
-    image: '/images/services/wedding-service.webp',
+    image: `${SVC_COVER}/wedding-sky.webp`,
   },
   {
     slug: 'pool',
@@ -33,7 +36,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Tailored exterior environments designed for leisure, hospitality, and long-term property value.',
     tags: ['POOL CONCEPTS', 'LANDSCAPE PLANNING', 'OUTDOOR INFRASTRUCTURE'],
-    image: '/images/services/swimming-garden-service.webp',
+    image: `${SVC_COVER}/Swimming-ppool.webp`,
   },
   {
     slug: 'storage',
@@ -42,7 +45,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Enterprise-grade warehousing and container capacity for businesses that need space, security, and predictable monthly terms.',
     tags: ['INVENTORY FLOW', 'SECURE STORAGE', 'DISTRIBUTION SUPPORT'],
-    image: '/images/services/rent-storage-service.webp',
+    image: `${SVC_COVER}/Storage-rent.webp`,
   },
   {
     slug: 'consulting',
@@ -51,7 +54,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Executive advisory services helping organizations scale with clarity, governance, and market confidence.',
     tags: ['STRATEGY DESIGN', 'GROWTH MODELING', 'PERFORMANCE OVERSIGHT'],
-    image: '/images/services/business-consultant-service.webp',
+    image: `${SVC_COVER}/10%20Business-consulting.webp`,
   },
   {
     slug: 'aviation',
@@ -60,7 +63,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Specialized aviation solutions and development pathways for professionals and organizations in the sector.',
     tags: ['CREW DEVELOPMENT', 'FLIGHT SUPPORT', 'CAREER MENTORING'],
-    image: '/images/services/aviation-service.webp',
+    image: `${SVC_COVER}/Global-wings.webp`,
   },
   {
     slug: 'astreal',
@@ -69,7 +72,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'End-to-end real estate structuring, from opportunity analysis to development strategy and portfolio growth.',
     tags: ['PROJECT PLANNING', 'INVESTMENT ADVISORY', 'ASSET MANAGEMENT'],
-    image: '/images/services/astreal-developer-service.webp',
+    image: `${SVC_COVER}/Astreal-developers.webp`,
   },
   {
     slug: 'hr',
@@ -78,7 +81,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Human capital services that align talent strategy, leadership development, and organizational outcomes.',
     tags: ['EXECUTIVE SEARCH', 'HR FRAMEWORKS', 'TALENT DEVELOPMENT'],
-    image: '/images/services/human-resources-service.webp',
+    image: `${SVC_COVER}/11%20The-circle.webp`,
   },
   {
     slug: 'tax',
@@ -87,7 +90,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Trusted financial and legal support ensuring transparent operations, compliant structures, and informed decisions.',
     tags: ['TAX PLANNING', 'FINANCIAL REPORTING', 'REGULATORY ADVISORY'],
-    image: '/images/services/tax-news-service.webp',
+    image: `${SVC_COVER}/tax.webp`,
   },
   {
     slug: 'janchapelle',
@@ -96,7 +99,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'One of the leading Wedding Dress houses. High-end fabrications and meticulous sewing techniques for brides who demand perfection.',
     tags: ['BRIDAL COUTURE', 'CUSTOM FITTINGS', 'LUXURY FABRICS'],
-    image: '/images/services/Janchapelle-service.webp',
+    image: `${SVC_COVER}/Jan-chapelle%20.webp`,
   },
   {
     slug: 'adr-mediation',
@@ -105,7 +108,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Professional mediation and arbitration services. We see solutions where others see problems — confidential, impartial, and results-driven.',
     tags: ['MEDIATION', 'ARBITRATION', 'CONFLICT RESOLUTION'],
-    image: '/images/services/dispute-mediation-center.webp',
+    image: `${SVC_COVER}/adr.webp`,
   },
 ]
 

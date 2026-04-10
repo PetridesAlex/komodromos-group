@@ -191,7 +191,18 @@ function App() {
                 <div
                   className={`service-inner ${index % 2 !== 0 ? 'img-left' : ''}`}
                 >
-                  <img src={card.image} alt={card.title} className="service-img" />
+                  <div className="service-media">
+                    <div className="service-card-badge" aria-hidden>
+                      <span className="service-card-badge__num">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span className="service-card-badge__rule" />
+                      <span className="service-card-badge__eyebrow">
+                        {card.eyebrow}
+                      </span>
+                    </div>
+                    <img src={card.image} alt={card.title} className="service-img" />
+                  </div>
                   <div className="service-text">
                     <p className="service-eyebrow">{card.eyebrow}</p>
                     <h3>{card.title}</h3>
