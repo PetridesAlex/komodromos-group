@@ -5,6 +5,7 @@ import TopbarSocialLinks from './TopbarSocialLinks'
 import { useReveal } from '../hooks/useReveal'
 import { getServiceBySlug } from '../data/serviceCards'
 import VipServicesGrid from './VipServicesGrid'
+import StoragePremiumSection from './StoragePremiumSection'
 
 export default function ServiceDetailPage() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -73,6 +74,8 @@ export default function ServiceDetailPage() {
       </section>
 
       {slug === 'vip' && <VipServicesGrid />}
+
+      {slug === 'storage' && <StoragePremiumSection />}
 
       <Footer />
     </div>

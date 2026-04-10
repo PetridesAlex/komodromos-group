@@ -40,7 +40,7 @@ export const serviceCards: ServiceCard[] = [
     eyebrow: 'SECURE LOGISTICS',
     title: 'Storage2Rent',
     description:
-      'Professional warehousing and transport coordination with attention to timing, protection, and reliability.',
+      'Enterprise-grade warehousing and container capacity for businesses that need space, security, and predictable monthly terms.',
     tags: ['INVENTORY FLOW', 'SECURE STORAGE', 'DISTRIBUTION SUPPORT'],
     image: '/images/services/rent-storage-service.webp',
   },
