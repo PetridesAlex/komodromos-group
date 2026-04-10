@@ -12,6 +12,18 @@
   --service-light-blue-hover: #bdd6f4;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ── Scroll Reveal ── */
 
 .reveal {
@@ -1581,36 +1593,36 @@ button {
 .service-brand-logo {
   display: block;
   /* Fixed height so every mark scales to the same band (smaller PNGs grow like Global Wings). */
-  height: clamp(50px, 7.5vw, 58px);
+  height: clamp(58px, 9vw, 72px);
   width: auto;
-  max-width: min(72%, 280px);
+  max-width: min(78%, 320px);
   object-fit: contain;
   object-position: top right;
 }
 
 article[data-service-slug='hr'] .service-brand-logo,
 article[data-service-slug='adr-mediation'] .service-brand-logo {
-  height: clamp(64px, 10vw, 82px);
-  max-width: min(82%, 320px);
+  height: clamp(76px, 11.5vw, 96px);
+  max-width: min(86%, 360px);
 }
 
 /* TaxNex: larger mark on dark column */
 article[data-service-slug='tax'] .service-brand-logo {
-  height: clamp(68px, 11vw, 90px);
-  max-width: min(86%, 330px);
+  height: clamp(82px, 12vw, 106px);
+  max-width: min(90%, 380px);
 }
 
 /* Storage2Rent: larger mark on dark column */
 article[data-service-slug='storage'] .service-brand-logo {
-  height: clamp(58px, 9.5vw, 76px);
-  max-width: min(90%, 340px);
+  height: clamp(70px, 11vw, 92px);
+  max-width: min(92%, 380px);
   object-position: center right;
 }
 
 /* Business consulting: larger wordmark */
 article[data-service-slug='consulting'] .service-brand-logo {
-  height: clamp(68px, 11vw, 92px);
-  max-width: min(88%, 340px);
+  height: clamp(82px, 12.5vw, 108px);
+  max-width: min(92%, 400px);
 }
 
 .service-inner.img-left .service-text {
@@ -3626,6 +3638,14 @@ article[data-service-slug='consulting'] .service-brand-logo {
   max-width: min(1260px, 100%);
 }
 
+/* Break out of .container so the collage uses full viewport width */
+.storage-parallax-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  position: relative;
+}
+
 .storage-features-heading {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -3636,65 +3656,55 @@ article[data-service-slug='consulting'] .service-brand-logo {
   margin: 0 0 clamp(1.5rem, 3vw, 2rem);
 }
 
-.storage-features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(22px, 3.2vw, 40px);
-  align-items: start;
+/* Parallax card collage (pointer-driven depth, scattered layout) */
+.storage-parallax {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
 }
 
-@media (max-width: 640px) {
-  .storage-features-grid {
-    grid-template-columns: 1fr;
-  }
+.storage-parallax-bleed .storage-parallax__frame {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
 }
 
-.storage-feature-item {
-  display: flex;
-  flex-direction: column;
-  gap: 1.05rem;
-  align-items: stretch;
-}
-
-.storage-feature-card {
+.storage-parallax__frame {
   position: relative;
   padding: 0;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   background: linear-gradient(
     165deg,
-    rgba(18, 26, 38, 0.95) 0%,
-    rgba(8, 12, 20, 0.98) 100%
+    rgba(12, 18, 28, 0.98) 0%,
+    rgba(4, 8, 14, 1) 100%
   );
-  border: 1px solid rgba(140, 195, 238, 0.42);
+  border: 1px solid rgba(140, 195, 238, 0.38);
   box-shadow:
-    0 14px 44px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(180, 220, 255, 0.12),
-    0 0 0 1px rgba(100, 170, 220, 0.08);
+    0 18px 52px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(180, 220, 255, 0.1),
+    0 0 0 1px rgba(100, 170, 220, 0.07);
   transition:
     border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    transform 0.35s ease;
+    box-shadow 0.35s ease;
 }
 
-.storage-feature-item:hover .storage-feature-card {
-  border-color: rgba(165, 215, 255, 0.65);
+.storage-parallax:hover .storage-parallax__frame {
+  border-color: rgba(165, 215, 255, 0.55);
   box-shadow:
-    0 22px 56px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(130, 200, 245, 0.28),
-    0 0 28px rgba(100, 175, 230, 0.12),
-    inset 0 1px 0 rgba(200, 230, 255, 0.14);
-  transform: translateY(-3px);
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(130, 200, 245, 0.22),
+    0 0 36px rgba(100, 175, 230, 0.1),
+    inset 0 1px 0 rgba(200, 230, 255, 0.12);
 }
 
-.storage-feature-card__accent {
+.storage-parallax__accent {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  z-index: 2;
-  border-radius: 0;
+  z-index: 20;
   background: linear-gradient(
     90deg,
     rgba(120, 185, 235, 0.15) 0%,
@@ -3707,61 +3717,152 @@ article[data-service-slug='consulting'] .service-brand-logo {
   pointer-events: none;
 }
 
-.storage-feature-card__media {
+.storage-parallax__stage {
   position: relative;
   width: 100%;
+  min-height: 0;
+  height: auto;
+  padding: clamp(1rem, 2.5vw, 1.75rem) 0;
+  background:
+    radial-gradient(ellipse 90% 80% at 50% 40%, rgba(25, 40, 58, 0.45) 0%, transparent 70%),
+    #05080e;
   overflow: hidden;
-  background: #070b10;
-  /* Large, viewport-scaled frame so photos read as hero-scale, not thumbnails */
-  min-height: clamp(300px, 52vw, 560px);
-  height: clamp(320px, min(58vw, 72vh), 640px);
+  touch-action: pan-x;
+  cursor: crosshair;
 }
 
-.storage-feature-card__img {
+/* Non-overlapping row extending to the right (horizontal scroll) */
+.storage-parallax__track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: clamp(14px, 2.2vw, 22px);
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 2.5rem);
+  scroll-padding-inline: clamp(1rem, 3vw, 2.5rem);
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: rgba(165, 215, 255, 0.35) rgba(8, 12, 20, 0.6);
+  scrollbar-width: thin;
+}
+
+.storage-parallax__track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.storage-parallax__track::-webkit-scrollbar-track {
+  background: rgba(6, 10, 16, 0.85);
+  border-radius: 4px;
+}
+
+.storage-parallax__track::-webkit-scrollbar-thumb {
+  background: rgba(130, 190, 235, 0.35);
+  border-radius: 4px;
+}
+
+.storage-parallax__fog {
   position: absolute;
   inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.03);
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 95% 90% at 50% 50%,
+    transparent 35%,
+    rgba(2, 4, 8, 0.55) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+.storage-parallax__card {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(240px, 28vw, 340px);
+  max-width: min(340px, 88vw);
+  scroll-snap-align: start;
+  transform-origin: center center;
   will-change: transform;
 }
 
-.storage-feature-item:hover .storage-feature-card__img {
-  transform: scale(1.12);
+.storage-parallax__card-inner {
+  position: relative;
+  width: 100%;
+  border-radius: clamp(10px, 1.8vw, 16px);
+  overflow: hidden;
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: #0a1018;
+  transition: box-shadow 0.35s ease;
 }
 
-.storage-feature-item__title {
+.storage-parallax__card:hover .storage-parallax__card-inner {
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(165, 215, 255, 0.25),
+    0 0 28px rgba(100, 175, 230, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.storage-parallax__card-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.storage-parallax__card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(2, 6, 12, 0.55) 78%,
+    rgba(2, 6, 12, 0.88) 100%
+  );
+  pointer-events: none;
+}
+
+.storage-parallax__card-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0.65rem 0.75rem 0.75rem;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(0.88rem, 1.65vw, 1.12rem);
+  font-size: clamp(0.58rem, 1.35vw, 0.72rem);
   font-weight: 800;
-  letter-spacing: 0.12em;
-  line-height: 1.3;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
   text-transform: uppercase;
-  color: #eaf6ff;
-  margin: 0;
-  padding: 0.45rem 0 0.45rem 1.15rem;
-  text-align: left;
-  border-left: 3px solid rgba(160, 215, 255, 0.95);
+  color: rgba(255, 255, 255, 0.95);
   text-shadow:
-    0 0 28px rgba(130, 200, 255, 0.45),
-    0 2px 12px rgba(0, 0, 0, 0.45);
+    0 1px 3px rgba(0, 0, 0, 0.85),
+    0 0 18px rgba(0, 0, 0, 0.5);
 }
 
-.storage-feature-item__body {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.86rem;
-  font-weight: 400;
-  line-height: 1.68;
-  letter-spacing: 0.015em;
-  color: rgba(255, 255, 255, 0.52);
-  margin: 0;
-  padding: 0 0.15rem 0 calc(3px + 1.15rem);
-  text-align: left;
-  max-width: 36rem;
+@media (max-width: 640px) {
+  .storage-parallax__card {
+    width: min(78vw, 300px);
+  }
+
+  .storage-parallax__track {
+    gap: 12px;
+    padding-inline: clamp(0.75rem, 4vw, 1.25rem);
+    scroll-padding-inline: clamp(0.75rem, 4vw, 1.25rem);
+  }
+
+  .storage-parallax__card-title {
+    font-size: 0.52rem;
+    padding: 0.5rem 0.55rem 0.6rem;
+  }
 }
 
 .storage-pricing-heading {
@@ -3916,8 +4017,7 @@ article[data-service-slug='consulting'] .service-brand-logo {
     transform: none;
   }
 
-  .storage-feature-item:hover .storage-feature-card,
-  .storage-feature-item:hover .storage-feature-card__img {
+  .storage-parallax:hover .storage-parallax__frame {
     transform: none;
   }
 }
@@ -5536,7 +5636,7 @@ a.action {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 42%;
+  object-position: center center;
   display: block;
 }
 

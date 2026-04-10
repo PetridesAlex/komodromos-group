@@ -1,60 +1,5 @@
 import { Link } from 'react-router-dom'
-
-const STORAGE_FEATURES: {
-  title: string
-  body: string
-  image: string
-  imageLabel: string
-}[] = [
-  {
-    title: 'FLEXIBLE STORAGE',
-    body:
-      'Wide range of size, monthly rolling contract, no long-term commitment, pay only for the days you use.',
-    image:
-      'https://images.unsplash.com/photo-1586528116494-1bccf8b76bb8?w=1920&q=85',
-    imageLabel: 'Storage units and containers',
-  },
-  {
-    title: 'YOUR OWN SPACE',
-    body:
-      'Only YOU hold the key, SAFE & SECURE self storage, with individual unit alarms and remote monitored digital CCTV offering 24hr access 365 days a year.',
-    image:
-      'https://images.unsplash.com/photo-1584433144859-1fc3ab64a728?w=1920&q=85',
-    imageLabel: 'Secure access and locks',
-  },
-  {
-    title: 'LOCAL & EASY TO FIND',
-    body:
-      'All our conveniently located stores are exclusively in Kiti, Larnaca, where we remain an active part of the community.',
-    image:
-      'https://images.unsplash.com/photo-1524661135-423994f34d6a?w=1920&q=85',
-    imageLabel: 'Location and directions',
-  },
-  {
-    title: 'PERSONAL, FRIENDLY & PROFESSIONAL',
-    body:
-      'Our team work hard to earn great customer service feedback & have won awards to prove it.',
-    image:
-      'https://images.unsplash.com/photo-1600880292203-757bb62b4b99?w=1920&q=85',
-    imageLabel: 'Professional team',
-  },
-  {
-    title: '24 HR ACCESS',
-    body:
-      'Access is available 7 days a week: access your storage unit as often as you want, any time.',
-    image:
-      'https://images.unsplash.com/photo-1496360166961-10a51d255ee0?w=1920&q=85',
-    imageLabel: 'Around-the-clock access',
-  },
-  {
-    title: 'BUSINESS STORAGE',
-    body:
-      'Why not rethink your business in Cyprus and make smarter use of space — save money and time.',
-    image:
-      'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=85',
-    imageLabel: 'Business and workspace',
-  },
-]
+import StorageParallaxCards from './StorageParallaxCards'
 
 const STORAGE_PLANS: { title: string; price: number }[] = [
   { title: '10 ft Container', price: 60 },
@@ -86,30 +31,9 @@ export default function StoragePremiumSection() {
 
         <div className="storage-features-wrap">
           <h3 className="storage-features-heading">The Storage2Rent standard</h3>
-          <div className="storage-features-grid" role="list">
-            {STORAGE_FEATURES.map((item) => (
-              <article
-                key={item.title}
-                className="storage-feature-item"
-                role="listitem"
-              >
-                <div className="storage-feature-card">
-                  <div className="storage-feature-card__accent" aria-hidden />
-                  <div className="storage-feature-card__media">
-                    <img
-                      src={item.image}
-                      alt={item.imageLabel}
-                      className="storage-feature-card__img"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-                <h4 className="storage-feature-item__title">{item.title}</h4>
-                <p className="storage-feature-item__body">{item.body}</p>
-              </article>
-            ))}
-          </div>
+        </div>
+        <div className="storage-parallax-bleed">
+          <StorageParallaxCards />
         </div>
 
         <h3 className="storage-pricing-heading">Monthly rates</h3>

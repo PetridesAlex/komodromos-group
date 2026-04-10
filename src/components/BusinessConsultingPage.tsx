@@ -19,6 +19,8 @@ import { useReveal } from '../hooks/useReveal'
 const SVC_COVER = '/images/services/companie-services-cover'
 
 const HERO_BG = `${SVC_COVER}/10%20Business-consulting.webp`
+/** Judgment column: dedicated advisory / consulting imagery (distinct from hero) */
+const JUDGMENT_MEDIA = `${SVC_COVER}/business-consulting-judgment.png`
 
 type ConsultingServiceItem = {
   id: string
@@ -607,8 +609,8 @@ export default function BusinessConsultingPage() {
           <div className="consulting-judgment__media reveal-left">
             <div className="consulting-judgment__frame">
               <img
-                src={HERO_BG}
-                alt=""
+                src={JUDGMENT_MEDIA}
+                alt="Advisory and professional services imagery"
                 className="consulting-judgment__img"
                 loading="lazy"
                 decoding="async"
