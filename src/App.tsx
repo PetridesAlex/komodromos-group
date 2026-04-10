@@ -187,7 +187,11 @@ function App() {
           </p>
           <div className="service-list">
             {serviceCards.map((card, index) => (
-              <article key={card.slug} className="service-card reveal-scale reveal">
+              <article
+                key={card.slug}
+                data-service-slug={card.slug}
+                className="service-card reveal-scale reveal"
+              >
                 <div
                   className={`service-inner ${index % 2 !== 0 ? 'img-left' : ''}`}
                 >
@@ -203,7 +207,20 @@ function App() {
                     </div>
                     <img src={card.image} alt={card.title} className="service-img" />
                   </div>
-                  <div className="service-text">
+                  <div
+                    className={`service-text${card.brandLogo ? ' service-text--with-brand' : ''}`}
+                  >
+                    {card.brandLogo ? (
+                      <div className="service-brand-row">
+                        <img
+                          src={card.brandLogo}
+                          alt=""
+                          className="service-brand-logo"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    ) : null}
                     <p className="service-eyebrow">{card.eyebrow}</p>
                     <h3>{card.title}</h3>
                     <p>{card.description}</p>

@@ -26,9 +26,11 @@ export default function ContactPage() {
     const s = location.state as {
       serviceInterest?: string
       vipSubService?: string
+      consultingTopic?: string
     } | null
     const interest = s?.serviceInterest
     const vipSub = s?.vipSubService
+    const consultingTopic = s?.consultingTopic
     if (typeof interest === 'string' && interest) {
       setForm((f) => ({
         ...f,
@@ -38,7 +40,11 @@ export default function ContactPage() {
           vipSub &&
           !f.message.trim()
             ? `Interested in: ${vipSub}`
-            : f.message,
+            : typeof consultingTopic === 'string' &&
+                consultingTopic &&
+                !f.message.trim()
+              ? `Topic: ${consultingTopic}`
+              : f.message,
       }))
     }
   }, [location.state])
