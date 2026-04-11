@@ -1,16 +1,18 @@
 import { useCallback, useRef, useSyncExternalStore } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, type MotionValue } from 'motion/react'
 
+const STORAGE_IMG = '/images/services/storage'
+
 const STORAGE_PARALLAX_SLIDES: { title: string; image: string }[] = [
-  { title: 'FLEXIBLE STORAGE', image: 'https://picsum.photos/seed/s2r-flex/1600/1000' },
-  { title: 'YOUR OWN SPACE', image: 'https://picsum.photos/seed/s2r-space/1600/1000' },
-  { title: 'LOCAL & EASY TO FIND', image: 'https://picsum.photos/seed/s2r-local/1600/1000' },
+  { title: 'FLEXIBLE STORAGE', image: `${STORAGE_IMG}/storage-flexible.webp` },
+  { title: 'YOUR OWN SPACE', image: `${STORAGE_IMG}/your-own-space.webp` },
+  { title: 'LOCAL & EASY TO FIND', image: `${STORAGE_IMG}/local-easy-to-find.webp` },
   {
     title: 'PERSONAL, FRIENDLY & PROFESSIONAL',
-    image: 'https://picsum.photos/seed/s2r-team/1600/1000',
+    image: `${STORAGE_IMG}/personal-friendly-proffesional.webp`,
   },
-  { title: '24 HR ACCESS', image: 'https://picsum.photos/seed/s2r-access/1600/1000' },
-  { title: 'BUSINESS STORAGE', image: 'https://picsum.photos/seed/s2r-biz/1600/1000' },
+  { title: '24 HR ACCESS', image: `${STORAGE_IMG}/hr-access.webp` },
+  { title: 'BUSINESS STORAGE', image: `${STORAGE_IMG}/business-strorage.webp` },
 ]
 
 /** Horizontal strip: parallax depth + subtle tilt (no overlapping cards) */
@@ -29,8 +31,8 @@ const PARALLAX_LAYOUT: ParallaxLayout[] = [
 ]
 
 const SPRING = { stiffness: 220, damping: 28, mass: 0.6 }
-const PARALLAX_PX = 52
-const ROTATE_MOUSE = 5
+const PARALLAX_PX = 64
+const ROTATE_MOUSE = 6
 
 function subscribeReducedMotion(cb: () => void) {
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)')

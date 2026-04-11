@@ -3722,7 +3722,7 @@ article[data-service-slug='consulting'] .service-brand-logo {
   width: 100%;
   min-height: 0;
   height: auto;
-  padding: clamp(1rem, 2.5vw, 1.75rem) 0;
+  padding: clamp(1.35rem, 3.2vw, 2.35rem) 0;
   background:
     radial-gradient(ellipse 90% 80% at 50% 40%, rgba(25, 40, 58, 0.45) 0%, transparent 70%),
     #05080e;
@@ -3737,11 +3737,11 @@ article[data-service-slug='consulting'] .service-brand-logo {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
-  gap: clamp(14px, 2.2vw, 22px);
+  gap: clamp(18px, 2.6vw, 28px);
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 2.5rem);
+  padding: clamp(0.65rem, 1.8vw, 1.15rem) clamp(1rem, 3vw, 2.5rem);
   scroll-padding-inline: clamp(1rem, 3vw, 2.5rem);
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
@@ -3779,8 +3779,8 @@ article[data-service-slug='consulting'] .service-brand-logo {
 .storage-parallax__card {
   position: relative;
   flex: 0 0 auto;
-  width: clamp(240px, 28vw, 340px);
-  max-width: min(340px, 88vw);
+  width: clamp(300px, 40vw, 460px);
+  max-width: min(460px, 92vw);
   scroll-snap-align: start;
   transform-origin: center center;
   will-change: transform;
@@ -3810,7 +3810,7 @@ article[data-service-slug='consulting'] .service-brand-logo {
 .storage-parallax__card-img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   height: auto;
   object-fit: cover;
   object-position: center;
@@ -3837,7 +3837,7 @@ article[data-service-slug='consulting'] .service-brand-logo {
   margin: 0;
   padding: 0.65rem 0.75rem 0.75rem;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(0.58rem, 1.35vw, 0.72rem);
+  font-size: clamp(0.62rem, 1.45vw, 0.8rem);
   font-weight: 800;
   letter-spacing: 0.1em;
   line-height: 1.25;
@@ -3850,7 +3850,7 @@ article[data-service-slug='consulting'] .service-brand-logo {
 
 @media (max-width: 640px) {
   .storage-parallax__card {
-    width: min(78vw, 300px);
+    width: min(88vw, 380px);
   }
 
   .storage-parallax__track {
@@ -3867,12 +3867,15 @@ article[data-service-slug='consulting'] .service-brand-logo {
 
 .storage-pricing-heading {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  letter-spacing: 0.12em;
+  font-weight: 800;
+  font-size: clamp(1.2rem, 2.45vw, 1.5rem);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   text-align: center;
-  color: rgba(255, 255, 255, 0.45);
+  color: #f2e6cf;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.45),
+    0 0 42px rgba(200, 169, 106, 0.22);
   margin: clamp(2.75rem, 6vw, 4rem) 0 clamp(1.25rem, 3vw, 1.75rem);
 }
 
