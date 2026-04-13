@@ -4,13 +4,16 @@ import Footer from './Footer'
 import TopbarSocialLinks from './TopbarSocialLinks'
 import { useReveal } from '../hooks/useReveal'
 import { getServiceBySlug } from '../data/serviceCards'
+import { getServicePageContent } from '../data/servicePageSections'
 import VipServicesGrid from './VipServicesGrid'
 import StoragePremiumSection from './StoragePremiumSection'
+import ServiceDefaultSections from './ServiceDefaultSections'
 
 export default function ServiceDetailPage() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { slug } = useParams<{ slug: string }>()
   const card = getServiceBySlug(slug)
+  const defaultContent = slug ? getServicePageContent(slug) : undefined
   const pageRef = useReveal()
 
   useEffect(() => {
@@ -76,6 +79,10 @@ export default function ServiceDetailPage() {
       {slug === 'vip' && <VipServicesGrid />}
 
       {slug === 'storage' && <StoragePremiumSection />}
+
+      {defaultContent && slug !== 'vip' && slug !== 'storage' ? (
+        <ServiceDefaultSections content={defaultContent} serviceInterest={card.title} />
+      ) : null}
 
       <Footer />
     </div>

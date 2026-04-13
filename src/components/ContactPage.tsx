@@ -27,10 +27,12 @@ export default function ContactPage() {
       serviceInterest?: string
       vipSubService?: string
       consultingTopic?: string
+      weddingPackage?: string
     } | null
     const interest = s?.serviceInterest
     const vipSub = s?.vipSubService
     const consultingTopic = s?.consultingTopic
+    const weddingPackage = s?.weddingPackage
     if (typeof interest === 'string' && interest) {
       setForm((f) => ({
         ...f,
@@ -44,7 +46,11 @@ export default function ContactPage() {
                 consultingTopic &&
                 !f.message.trim()
               ? `Topic: ${consultingTopic}`
-              : f.message,
+              : typeof weddingPackage === 'string' &&
+                  weddingPackage &&
+                  !f.message.trim()
+                ? `Wedding package interest: ${weddingPackage}`
+                : f.message,
       }))
     }
   }, [location.state])

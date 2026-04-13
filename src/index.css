@@ -320,6 +320,37 @@ a {
   gap: 1.5rem;
 }
 
+/* Wedding page: nav deepens on scroll (premium glass) */
+.wedding-page .topbar {
+  transition:
+    background 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    backdrop-filter 0.45s ease,
+    -webkit-backdrop-filter 0.45s ease;
+}
+
+.wedding-page .topbar.topbar--scrolled {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 8, 22, 0.99) 0%,
+    rgba(1, 4, 12, 0.995) 100%
+  );
+  backdrop-filter: blur(24px) saturate(1.65);
+  -webkit-backdrop-filter: blur(24px) saturate(1.65);
+  border-bottom-color: rgba(197, 160, 89, 0.3);
+  box-shadow:
+    0 14px 44px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 0 52px rgba(56, 189, 248, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wedding-page .topbar {
+    transition-duration: 0.01ms;
+  }
+}
+
 .logo {
   letter-spacing: 0.25em;
   font-size: 0.88rem;
@@ -1614,8 +1645,8 @@ article[data-service-slug='tax'] .service-brand-logo {
 
 /* Storage2Rent: larger mark on dark column */
 article[data-service-slug='storage'] .service-brand-logo {
-  height: clamp(70px, 11vw, 92px);
-  max-width: min(92%, 380px);
+  height: clamp(88px, 13vw, 118px);
+  max-width: min(96%, 440px);
   object-position: center right;
 }
 
@@ -4609,42 +4640,40 @@ a.action {
   position: relative;
   display: block;
   text-decoration: none;
-  color: #143a52;
+  color: #e8f4ff;
   overflow: hidden;
   isolation: isolate;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.42);
-  background: linear-gradient(
-    125deg,
-    rgba(255, 255, 255, 0.38) 0%,
-    rgba(200, 230, 248, 0.32) 35%,
-    rgba(180, 218, 242, 0.36) 65%,
-    rgba(255, 255, 255, 0.34) 100%
-  );
-  backdrop-filter: blur(16px) saturate(165%);
-  -webkit-backdrop-filter: blur(16px) saturate(165%);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.35);
+  background:
+    linear-gradient(
+      125deg,
+      rgba(8, 18, 42, 0.97) 0%,
+      rgba(15, 55, 95, 0.92) 28%,
+      rgba(12, 75, 105, 0.88) 52%,
+      rgba(45, 35, 88, 0.9) 78%,
+      rgba(8, 22, 48, 0.96) 100%
+    ),
+    radial-gradient(ellipse 120% 80% at 15% 50%, rgba(56, 189, 248, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 70% at 85% 30%, rgba(200, 169, 106, 0.14) 0%, transparent 50%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
   box-shadow:
-    0 8px 32px rgba(15, 50, 80, 0.1),
-    0 1px 0 rgba(255, 255, 255, 0.55) inset,
-    0 -1px 0 rgba(120, 170, 210, 0.12) inset;
+    0 10px 40px rgba(0, 20, 50, 0.45),
+    0 0 48px rgba(56, 189, 248, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition:
-    background 0.35s ease,
     box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    filter 0.35s ease;
 }
 
 .wedding-tv-ad-bar:hover {
-  background: linear-gradient(
-    125deg,
-    rgba(255, 255, 255, 0.48) 0%,
-    rgba(210, 236, 252, 0.42) 35%,
-    rgba(190, 228, 248, 0.46) 65%,
-    rgba(255, 255, 255, 0.44) 100%
-  );
-  border-bottom-color: rgba(255, 255, 255, 0.55);
+  filter: saturate(1.12);
+  border-bottom-color: rgba(200, 169, 106, 0.55);
   box-shadow:
-    0 12px 40px rgba(15, 55, 90, 0.12),
-    0 1px 0 rgba(255, 255, 255, 0.65) inset,
-    0 -1px 0 rgba(100, 160, 200, 0.15) inset;
+    0 14px 48px rgba(0, 25, 60, 0.55),
+    0 0 64px rgba(56, 189, 248, 0.18),
+    0 0 32px rgba(200, 169, 106, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 @supports not (
@@ -4652,23 +4681,23 @@ a.action {
 ) {
   .wedding-tv-ad-bar {
     background: linear-gradient(
-      92deg,
-      #e3f2fb 0%,
-      #cfe8f8 18%,
-      #c2e2f5 50%,
-      #cfe8f8 82%,
-      #e3f2fb 100%
+      125deg,
+      #0a1628 0%,
+      #0f3a5c 35%,
+      #0c4a68 55%,
+      #1e2a58 80%,
+      #0a1628 100%
     );
   }
 
   .wedding-tv-ad-bar:hover {
     background: linear-gradient(
-      92deg,
-      #d8edf9 0%,
-      #c4e3f6 18%,
-      #b5dbf3 50%,
-      #c4e3f6 82%,
-      #d8edf9 100%
+      125deg,
+      #0c1a32 0%,
+      #124868 35%,
+      #0e5270 55%,
+      #243060 80%,
+      #0c1a32 100%
     );
   }
 }
@@ -4679,23 +4708,24 @@ a.action {
   background: linear-gradient(
     105deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.28) 42%,
-    rgba(255, 255, 255, 0.12) 50%,
-    transparent 58%
+    rgba(56, 189, 248, 0.15) 38%,
+    rgba(255, 255, 255, 0.22) 48%,
+    rgba(200, 169, 106, 0.12) 55%,
+    transparent 62%
   );
-  animation: weddingTvAdShine 5s ease-in-out infinite;
+  animation: weddingTvAdShine 4.2s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes weddingTvAdShine {
   0%,
   100% {
-    opacity: 0.35;
-    transform: translateX(-8%);
+    opacity: 0.45;
+    transform: translateX(-18%) skewX(-2deg);
   }
   50% {
-    opacity: 0.85;
-    transform: translateX(8%);
+    opacity: 1;
+    transform: translateX(18%) skewX(2deg);
   }
 }
 
@@ -4714,31 +4744,49 @@ a.action {
 .wedding-tv-ad-bar__copy {
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #062238;
+  letter-spacing: 0.05em;
+  color: rgba(232, 244, 255, 0.94);
   text-align: center;
   max-width: 42rem;
   line-height: 1.45;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
 }
 
 .wedding-tv-ad-bar__cta {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
+  padding: 0.48rem 0.95rem;
   border-radius: 999px;
   font-size: 0.62rem;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #f8fcff;
-  background: linear-gradient(135deg, #3b82b8 0%, #256fa3 55%, #1a5a87 100%);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 0 2px 12px rgba(40, 110, 160, 0.28);
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    #ff0033 0%,
+    #e6002e 40%,
+    #cc0026 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 2px 16px rgba(255, 0, 50, 0.45),
+    0 0 24px rgba(255, 40, 80, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
 .wedding-tv-ad-bar:hover .wedding-tv-ad-bar__cta {
-  filter: brightness(1.06);
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 22px rgba(255, 0, 50, 0.55),
+    0 0 32px rgba(255, 60, 100, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .wedding-tv-ad-bar__cta-yt {
@@ -4758,7 +4806,7 @@ a.action {
 }
 
 .wedding-tv-ad-bar:focus-visible {
-  outline: 2px solid rgba(165, 200, 232, 0.85);
+  outline: 2px solid rgba(56, 189, 248, 0.85);
   outline-offset: 2px;
 }
 
@@ -4766,82 +4814,186 @@ a.action {
   .wedding-tv-ad-bar__shine {
     animation: none;
   }
+
+  .wedding-tv-ad-bar:hover .wedding-tv-ad-bar__cta {
+    transform: none;
+  }
 }
+
+/* ── Wedding hero: layered imagery + glass editorial panel ── */
 
 .wedding-page .wedding-hero {
   position: relative;
-  min-height: min(58vh, 520px);
+  isolation: isolate;
+  min-height: min(72vh, 720px);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: clamp(5.25rem, 11vh, 6.75rem) 0 clamp(2rem, 4vh, 3rem);
+  justify-content: flex-end;
+  padding: clamp(4.5rem, 10vh, 6rem) 0 clamp(2.5rem, 5vh, 3.5rem);
   overflow: hidden;
-  background: #05070a;
+  background: #030508;
+}
+
+.wedding-hero__layers {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .wedding-hero__bg {
   position: absolute;
   inset: 0;
   background-size: cover;
-  /* Focal area: upper-left of the photo (higher + toward the left) */
-  background-position: 6% 8%;
-  opacity: 0.42;
+  background-position: 18% 22%;
+  transform: scale(1.03);
+  opacity: 0.52;
+}
+
+.wedding-hero__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 85% 70% at 50% 40%,
+    transparent 0%,
+    rgba(3, 5, 10, 0.5) 55%,
+    #030508 100%
+  );
+  pointer-events: none;
 }
 
 .wedding-hero__scrim {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-      to top,
-      #05070a 0%,
-      rgba(5, 7, 10, 0.55) 45%,
-      rgba(5, 7, 10, 0.75) 100%
+  background:
+    linear-gradient(
+      165deg,
+      rgba(3, 5, 10, 0.15) 0%,
+      rgba(3, 5, 10, 0.55) 42%,
+      rgba(3, 5, 10, 0.92) 100%
     ),
-    linear-gradient(to right, rgba(5, 7, 10, 0.65) 0%, transparent 55%);
+    linear-gradient(
+      90deg,
+      rgba(3, 5, 10, 0.88) 0%,
+      rgba(3, 5, 10, 0.35) 48%,
+      rgba(3, 5, 10, 0.2) 100%
+    );
   pointer-events: none;
 }
 
-.wedding-page .wedding-hero .container.wedding-hero__inner {
-  position: relative;
+.wedding-hero__grain {
+  position: absolute;
+  inset: 0;
   z-index: 2;
-  align-self: flex-start;
-  margin-left: clamp(1.5rem, 5vw, 3rem);
-  margin-right: auto;
-  margin-top: 0;
-  max-width: min(720px, calc(100% - clamp(1.5rem, 5vw, 3rem) - 1.25rem));
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.wedding-hero__accent-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 3;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 169, 106, 0.25) 20%,
+    rgba(230, 210, 175, 0.85) 50%,
+    rgba(200, 169, 106, 0.25) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.wedding-hero__outer {
+  position: relative;
+  z-index: 4;
   width: 100%;
 }
 
+.wedding-hero__inner {
+  max-width: 720px;
+  margin: 0;
+}
+
+.wedding-hero__panel {
+  padding: clamp(1.35rem, 3.5vw, 2rem) clamp(1.35rem, 3.5vw, 2.15rem);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    145deg,
+    rgba(12, 18, 28, 0.72) 0%,
+    rgba(6, 10, 18, 0.55) 100%
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(100, 170, 220, 0.06);
+}
+
 .wedding-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.28em;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0 0 0.75rem;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 106, 0.95);
+  margin: 0 0 1rem;
+}
+
+.wedding-hero__eyebrow-mark {
+  display: block;
+  width: 3px;
+  height: 1.15em;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(230, 210, 175, 0.95) 0%,
+    rgba(165, 130, 70, 0.75) 100%
+  );
+  box-shadow: 0 0 16px rgba(200, 169, 106, 0.35);
 }
 
 .wedding-hero__title {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  line-height: 1.12;
-  margin: 0 0 1rem;
+  font-size: clamp(2.1rem, 5.2vw, 3.35rem);
+  line-height: 1.1;
+  margin: 0 0 1.1rem;
   color: #fafbfd;
-  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.55);
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.45);
 }
 
 .wedding-hero__lead {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.9rem, 1.65vw, 1.02rem);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.78);
   margin: 0;
-  max-width: 560px;
+  max-width: 38rem;
+}
+
+@media (min-width: 900px) {
+  .wedding-hero__inner {
+    margin-left: clamp(0rem, 2vw, 1rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wedding-hero__bg {
+    transform: none;
+  }
 }
 
 .wedding-video-section {
@@ -4880,7 +5032,20 @@ a.action {
 }
 
 .wedding-services-block {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(
+    180deg,
+    rgba(5, 8, 14, 0.98) 0%,
+    rgba(6, 12, 22, 0.5) 40%,
+    #05070a 100%
+  );
+}
+
+.wedding-services-block__intro {
+  max-width: 38rem;
+  font-size: 0.98rem;
+  line-height: 1.78;
+  color: rgba(255, 255, 255, 0.58);
 }
 
 .wedding-section__eyebrow {
@@ -4909,6 +5074,14 @@ a.action {
   margin-right: auto;
 }
 
+.wedding-why .wedding-why__intro {
+  max-width: 36rem;
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  font-size: 0.92rem;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .wedding-section__intro {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.95rem;
@@ -4922,37 +5095,56 @@ a.action {
 .wedding-offerings {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.5rem);
+  gap: clamp(1.15rem, 2.2vw, 1.65rem);
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wedding-offering-card {
-  padding: 1.5rem 1.35rem;
-  border: 1px solid rgba(165, 200, 232, 0.22);
-  background: linear-gradient(160deg, rgba(12, 18, 32, 0.95) 0%, rgba(5, 8, 14, 0.98) 100%);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  padding: 1.65rem 1.5rem 1.55rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    165deg,
+    rgba(14, 20, 34, 0.92) 0%,
+    rgba(6, 10, 18, 0.96) 100%
+  );
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .wedding-offering-card:hover {
-  border-color: rgba(200, 169, 106, 0.35);
-  transform: translateY(-2px);
+  border-color: rgba(165, 200, 232, 0.22);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(200, 169, 106, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-3px);
 }
 
 .wedding-offering-card__title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(165, 200, 232, 0.95);
-  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.97);
+  margin: 0 0 0.75rem;
 }
 
 .wedding-offering-card__desc {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.62);
   margin: 0;
 }
 
@@ -4969,124 +5161,59 @@ a.action {
 .wedding-why__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  max-width: 960px;
+  gap: clamp(1.35rem, 3vw, 2rem);
+  max-width: 920px;
   margin: 0 auto;
+  text-align: left;
 }
 
 .wedding-why__card {
-  padding: 1.35rem 1.25rem;
-  border: 1px solid rgba(200, 169, 106, 0.22);
-  background: rgba(8, 12, 22, 0.85);
-  text-align: center;
+  padding: 1.35rem 1.5rem 1.45rem;
+  margin: 0;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: rgba(8, 12, 22, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: left;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.wedding-why__card:hover {
+  background: rgba(12, 18, 30, 0.65);
+  border-color: rgba(165, 200, 232, 0.14);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
 }
 
 .wedding-why__text {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(0.72rem, 1.5vw, 0.82rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.45;
-  color: #f0e6d8;
+  font-size: clamp(0.88rem, 1.35vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
   margin: 0;
+  max-width: 42rem;
+  transition: color 0.25s ease;
 }
 
-.wedding-property {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.wedding-property__sub {
-  margin-bottom: 2rem;
-}
-
-.wedding-property__group {
-  margin-bottom: 2.5rem;
-}
-
-.wedding-property__group:last-of-type {
-  margin-bottom: 0;
-}
-
-.wedding-property__group-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #c8a96a;
-  margin: 0 0 1.35rem;
-  text-align: center;
-}
-
-.wedding-property__cards {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.15rem;
-}
-
-.wedding-property-card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 6.25rem;
-  padding: 1.65rem 1.5rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  line-height: 1.45;
+.wedding-why__card:hover .wedding-why__text {
   color: rgba(255, 255, 255, 0.92);
-  border-radius: 5px;
-  border: 1px solid rgba(165, 200, 232, 0.22);
-  background: linear-gradient(
-    165deg,
-    rgba(16, 24, 42, 0.92) 0%,
-    rgba(6, 10, 18, 0.96) 100%
-  );
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.38),
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.35) inset;
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
 }
 
-.wedding-property-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 46%;
-  min-height: 2.25rem;
-  border-radius: 0 3px 3px 0;
-  background: linear-gradient(
-    180deg,
-    rgba(200, 169, 106, 0.95) 0%,
-    rgba(200, 169, 106, 0.2) 100%
-  );
-  opacity: 0.85;
-  pointer-events: none;
+@media (max-width: 700px) {
+  .wedding-why__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.wedding-property-card:hover {
-  border-color: rgba(165, 200, 232, 0.45);
-  background: linear-gradient(
-    165deg,
-    rgba(22, 32, 52, 0.96) 0%,
-    rgba(8, 14, 26, 0.98) 100%
-  );
-  box-shadow:
-    0 14px 44px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(165, 200, 232, 0.12),
-    0 1px 0 rgba(255, 255, 255, 0.07) inset;
-  transform: translateY(-3px);
+@media (prefers-reduced-motion: reduce) {
+  .wedding-why__card:hover {
+    transform: none;
+  }
 }
 
 .wedding-about {
@@ -5130,11 +5257,63 @@ a.action {
 }
 
 .wedding-about__block--muted {
-  padding: clamp(1.5rem, 3vw, 2rem) clamp(1.35rem, 2.5vw, 1.85rem);
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(8, 12, 22, 0.65);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  padding: clamp(1.65rem, 3.2vw, 2.2rem) clamp(1.45rem, 2.6vw, 1.95rem) clamp(1.65rem, 3.2vw, 2.2rem)
+    clamp(1.5rem, 2.8vw, 1.85rem);
+  border-radius: 10px;
+  border: 1px solid rgba(165, 200, 232, 0.22);
+  background:
+    linear-gradient(145deg, rgba(32, 44, 62, 0.45) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(16, 22, 34, 0.98) 0%, rgba(8, 11, 20, 0.99) 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.45) inset,
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 20px 52px rgba(0, 0, 0, 0.42),
+    0 0 80px rgba(165, 200, 232, 0.06);
+  overflow: hidden;
+}
+
+.wedding-about__block--muted::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  bottom: 1rem;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(200, 169, 106, 0.95) 0%,
+    rgba(165, 200, 232, 0.55) 45%,
+    rgba(200, 169, 106, 0.35) 100%
+  );
+  box-shadow: 0 0 24px rgba(165, 200, 232, 0.15);
+  pointer-events: none;
+}
+
+.wedding-about__block--muted .wedding-about__subhead {
+  color: rgba(198, 226, 252, 0.98);
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.16em;
+}
+
+.wedding-about__block--muted .wedding-about__tagline {
+  font-size: clamp(1.12rem, 2.1vw, 1.38rem);
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.96);
+  letter-spacing: 0.03em;
+  margin: 0 0 1.05rem;
+  padding-bottom: 1.05rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  line-height: 1.45;
+}
+
+.wedding-about__block--muted .wedding-about__copy {
+  font-size: clamp(0.94rem, 1.35vw, 1.02rem);
+  line-height: 1.78;
+  color: rgba(232, 238, 248, 0.88);
+  letter-spacing: 0.01em;
 }
 
 .wedding-about__cta-wrap {
@@ -5447,10 +5626,6 @@ a.action {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .wedding-property__cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .wedding-testimonials__grid {
     grid-template-columns: 1fr;
   }
@@ -5461,10 +5636,6 @@ a.action {
 }
 
 @media (max-width: 640px) {
-  .wedding-why__grid {
-    grid-template-columns: 1fr;
-  }
-
   .wedding-offerings {
     grid-template-columns: 1fr;
   }
@@ -7055,5 +7226,878 @@ a.action {
 @media (max-width: 540px) {
   .consulting-judgment__badge {
     right: 0.5rem;
+  }
+}
+
+/* ── Wedding page: intro + highlight tiles + packages section ── */
+
+/* ── Wedding intro: editorial layout + connect bar ── */
+
+.wedding-intro-social {
+  position: relative;
+  padding: clamp(3rem, 7vw, 4.5rem) 0;
+  border-top: 1px solid rgba(140, 195, 238, 0.1);
+  overflow: hidden;
+}
+
+.wedding-intro-social__ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(120, 185, 235, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(200, 169, 106, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(3, 5, 10, 0.4) 0%, rgba(3, 5, 10, 0.95) 100%);
+}
+
+.wedding-intro-social__shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1040px;
+}
+
+.wedding-intro-social__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  align-items: start;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wedding-intro-social__header-mark {
+  width: 4px;
+  align-self: stretch;
+  min-height: 4.5rem;
+  border-radius: 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(165, 200, 232, 0.95) 0%,
+    rgba(100, 150, 195, 0.35) 55%,
+    rgba(200, 169, 106, 0.65) 100%
+  );
+  box-shadow: 0 0 24px rgba(165, 200, 232, 0.15);
+}
+
+.wedding-intro-social__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(165, 200, 232, 0.92);
+  margin: 0 0 0.65rem;
+}
+
+.wedding-intro-social__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.45rem, 3.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.22;
+  color: rgba(255, 255, 255, 0.97);
+  margin: 0;
+  max-width: 26ch;
+}
+
+.wedding-intro-social__body {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.wedding-intro-social__column {
+  margin: 0;
+}
+
+.wedding-intro-social__lead {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.78;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.wedding-intro-social__divider {
+  width: 1px;
+  align-self: stretch;
+  min-height: 5rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(200, 169, 106, 0.45) 35%,
+    rgba(165, 200, 232, 0.35) 70%,
+    transparent 100%
+  );
+}
+
+.wedding-intro-social__column--el .wedding-intro-social__lead-el {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.82;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+}
+
+.wedding-intro-social__connect {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(165, 200, 232, 0.16);
+  background: linear-gradient(
+    135deg,
+    rgba(12, 18, 28, 0.65) 0%,
+    rgba(6, 10, 18, 0.85) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+.wedding-intro-social__connect-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 106, 0.9);
+}
+
+.wedding-intro-social__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.wedding-intro-social__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.75rem 0.45rem 0.55rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 12, 22, 0.6);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.wedding-intro-social__pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(165, 200, 232, 0.35);
+  background: rgba(14, 22, 36, 0.85);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.wedding-intro-social__pill-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.wedding-intro-social__pill-text {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .wedding-intro-social__header {
+    grid-template-columns: 1fr;
+  }
+
+  .wedding-intro-social__header-mark {
+    width: 100%;
+    height: 4px;
+    min-height: 0;
+  }
+
+  .wedding-intro-social__body {
+    grid-template-columns: 1fr;
+  }
+
+  .wedding-intro-social__divider {
+    width: 100%;
+    height: 1px;
+    min-height: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(200, 169, 106, 0.35) 50%,
+      transparent 100%
+    );
+  }
+
+  .wedding-intro-social__nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wedding-intro-social__pill:hover {
+    transform: none;
+  }
+}
+
+.wedding-highlight-tiles {
+  position: relative;
+  padding-bottom: clamp(0.5rem, 2vw, 1rem);
+}
+
+.wedding-highlight-tiles__head {
+  max-width: 44rem;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.wedding-highlight-tiles__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(165, 200, 232, 0.9);
+  margin: 0 0 0.65rem;
+}
+
+.wedding-highlight-tiles__h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0 0 0.85rem;
+}
+
+.wedding-highlight-tiles__intro {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0 0 0.75rem;
+}
+
+.wedding-highlight-tiles__intro-el {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.48);
+  margin: 0;
+}
+
+.wedding-highlight-tiles__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 18px);
+}
+
+@media (max-width: 1100px) {
+  .wedding-highlight-tiles__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .wedding-highlight-tiles__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wedding-highlight-tiles__tile {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(165, 200, 232, 0.18);
+  background: linear-gradient(
+    165deg,
+    rgba(12, 18, 28, 0.92) 0%,
+    rgba(6, 10, 18, 0.98) 100%
+  );
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+article.wedding-highlight-tiles__tile {
+  cursor: default;
+}
+
+.wedding-highlight-tiles__tile--link {
+  cursor: pointer;
+}
+
+.wedding-highlight-tiles__tile--link:hover {
+  transform: translateY(-5px);
+  border-color: rgba(200, 169, 106, 0.42);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(200, 169, 106, 0.12);
+}
+
+.wedding-highlight-tiles__tile--link:hover .wedding-highlight-tiles__caption {
+  border-top-color: rgba(200, 169, 106, 0.38);
+}
+
+.wedding-highlight-tiles__tile--link:hover .wedding-highlight-tiles__caption::before {
+  box-shadow: 0 0 28px rgba(200, 169, 106, 0.22);
+}
+
+.wedding-highlight-tiles__tile--link:hover .wedding-highlight-tiles__media img {
+  transform: scale(1.045);
+}
+
+.wedding-highlight-tiles__tile--link:focus-visible {
+  outline: 2px solid rgba(165, 200, 232, 0.95);
+  outline-offset: 3px;
+}
+
+.wedding-highlight-tiles__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.wedding-highlight-tiles__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wedding-highlight-tiles__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 12, 0.05) 0%,
+    rgba(2, 6, 12, 0.45) 100%
+  );
+  pointer-events: none;
+}
+
+.wedding-highlight-tiles__caption {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: clamp(1.3rem, 2.9vw, 1.75rem) 1.15rem clamp(1.35rem, 2.9vw, 1.7rem) 1.45rem;
+  background:
+    linear-gradient(
+      165deg,
+      rgba(28, 22, 16, 0.55) 0%,
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(14, 12, 18, 0.98) 0%,
+      rgba(5, 7, 12, 0.995) 100%
+    );
+  border-top: 1px solid rgba(200, 169, 106, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset -1px 0 0 rgba(0, 0, 0, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.wedding-highlight-tiles__caption::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  bottom: 0.95rem;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(200, 169, 106, 0.95) 0%,
+    rgba(165, 200, 232, 0.45) 55%,
+    rgba(200, 169, 106, 0.35) 100%
+  );
+  box-shadow: 0 0 20px rgba(200, 169, 106, 0.12);
+  pointer-events: none;
+}
+
+.wedding-highlight-tiles__caption p {
+  margin: 0;
+}
+
+.wedding-highlight-tiles__kicker {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.64rem, 0.88vw, 0.74rem);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(222, 198, 150, 0.98);
+  margin: 0 0 clamp(1.15rem, 2.4vw, 1.55rem);
+  padding-bottom: clamp(1rem, 2.1vw, 1.35rem);
+  line-height: 1.35;
+}
+
+.wedding-highlight-tiles__kicker::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(200, 169, 106, 0.65) 0%,
+    rgba(165, 200, 232, 0.32) 52%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.wedding-highlight-tiles__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.8rem, 1.15vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  line-height: 1.58;
+  color: rgba(255, 255, 255, 0.97);
+  margin: 0 0 clamp(0.45rem, 1vw, 0.65rem);
+}
+
+.wedding-highlight-tiles__title-el {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.74rem, 1vw, 0.84rem);
+  font-weight: 500;
+  line-height: 1.62;
+  letter-spacing: 0.015em;
+  color: rgba(198, 214, 234, 0.72);
+  margin: clamp(1.35rem, 2.9vw, 1.85rem) 0 0;
+  padding: clamp(1.05rem, 2.1vw, 1.35rem) 0 0;
+  border-top: 1px solid rgba(200, 169, 106, 0.12);
+  background: linear-gradient(
+    180deg,
+    rgba(165, 200, 232, 0.04) 0%,
+    transparent 65%
+  );
+  border-radius: 0 0 2px 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wedding-highlight-tiles__tile--link:hover {
+    transform: none;
+  }
+
+  .wedding-highlight-tiles__tile--link:hover .wedding-highlight-tiles__media img {
+    transform: none;
+  }
+}
+
+.wedding-packages-section__intro-el {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 52rem;
+  margin: -0.5rem 0 2rem;
+}
+
+.wedding-packages-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+@media (max-width: 768px) {
+  .wedding-packages-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wedding-packages-section__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(165, 200, 232, 0.18);
+  background: rgba(8, 12, 22, 0.75);
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 640px) {
+  .wedding-packages-section__card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wedding-packages-section__media {
+  position: relative;
+  min-height: 180px;
+}
+
+.wedding-packages-section__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wedding-packages-section__media-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(2, 6, 12, 0.2) 100%);
+  pointer-events: none;
+}
+
+.wedding-packages-section__content {
+  padding: 1.25rem 1.35rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.wedding-packages-section__name-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.35rem, 1vw, 0.55rem);
+  padding-bottom: clamp(0.85rem, 1.8vw, 1.05rem);
+  margin-bottom: 0.2rem;
+}
+
+.wedding-packages-section__name-stack::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(200, 169, 106, 0.55) 0%,
+    rgba(165, 200, 232, 0.35) 42%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+}
+
+.wedding-packages-section__name-stack::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: clamp(2.25rem, 18%, 3.5rem);
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(200, 169, 106, 0.95) 0%,
+    rgba(165, 200, 232, 0.85) 100%
+  );
+  box-shadow: 0 0 16px rgba(165, 200, 232, 0.25);
+  pointer-events: none;
+}
+
+.wedding-packages-section__name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.9rem, 1.35vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.25;
+  color: rgba(248, 252, 255, 0.98);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+@supports (background-clip: text) and (-webkit-background-clip: text) {
+  .wedding-packages-section__name {
+    background: linear-gradient(
+      118deg,
+      #ffffff 0%,
+      #e8f2fa 38%,
+      var(--service-light-blue) 95%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
+  }
+}
+
+.wedding-packages-section__name-el {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(0.82rem, 1.15vw, 0.95rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: rgba(186, 214, 240, 0.88);
+  margin: 0;
+}
+
+.wedding-packages-section__price {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.28rem, 2.1vw, 1.55rem);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  color: var(--service-light-blue);
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.35),
+    0 0 36px rgba(165, 200, 232, 0.22);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.wedding-packages-section__tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+}
+
+.wedding-packages-section__tag-el {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 0.75rem;
+}
+
+.wedding-packages-section__enquire {
+  align-self: flex-start;
+  margin-top: auto;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(10, 22, 38, 0.95);
+  padding: 0.55rem 1rem;
+  border-radius: 4px;
+  background: linear-gradient(
+    165deg,
+    #e8f2fa 0%,
+    #c5daf0 40%,
+    var(--service-light-blue) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.wedding-packages-section__enquire:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.wedding-visit__map-wrap {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(165, 200, 232, 0.2);
+  min-height: 320px;
+  background: rgba(4, 8, 14, 0.6);
+}
+
+.wedding-visit__map {
+  display: block;
+  width: 100%;
+  height: min(420px, 55vh);
+  border: 0;
+}
+
+/* ── Service detail: default sections (thin slugs) ── */
+
+.service-default-section {
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.service-default-section--offerings {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 18, 0.5) 0%,
+    rgba(4, 8, 14, 0.85) 100%
+  );
+}
+
+.service-default-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.service-default-lead-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 1rem;
+}
+
+.service-default-lead {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+}
+
+.service-default-offerings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .service-default-offerings {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-default-card {
+  padding: 1.25rem 1.15rem;
+  border-radius: 8px;
+  border: 1px solid rgba(165, 200, 232, 0.18);
+  background: rgba(8, 12, 22, 0.65);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.service-default-card:hover {
+  border-color: rgba(200, 169, 106, 0.3);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.service-default-card__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(165, 200, 232, 0.95);
+  margin: 0 0 0.65rem;
+}
+
+.service-default-card__desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+}
+
+.service-default-section--bullets .service-default-inner {
+  max-width: 720px;
+}
+
+.service-default-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.service-default-bullets li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.service-default-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(200, 169, 106, 0.85);
+}
+
+.service-default-closing {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+  text-align: center;
+}
+
+.service-default-cta-wrap {
+  padding: clamp(2rem, 4vw, 2.75rem) 0 clamp(3rem, 6vw, 4rem);
+}
+
+.service-default-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 280px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(10, 22, 38, 0.95);
+  padding: 0.85rem 1.5rem;
+  border-radius: 4px;
+  background: linear-gradient(
+    165deg,
+    #e8f2fa 0%,
+    #c5daf0 35%,
+    var(--service-light-blue) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 32px rgba(60, 120, 180, 0.25);
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.service-default-cta:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+}
+
+.service-default-cta-wrap .service-default-inner {
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-default-card:hover,
+  .wedding-packages-section__enquire:hover,
+  .service-default-cta:hover,
+  .wedding-highlight-tiles__tile--link:hover {
+    transform: none;
   }
 }

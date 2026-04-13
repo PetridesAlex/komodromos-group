@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { UserCircle2 } from 'lucide-react'
 import Footer from './Footer'
 import TopbarSocialLinks from './TopbarSocialLinks'
+import WeddingIntroSocial from './WeddingIntroSocial'
+import WeddingHighlightTiles from './WeddingHighlightTiles'
+import WeddingPackagesSection from './WeddingPackagesSection'
 import { useReveal } from '../hooks/useReveal'
 
 const WHY_CHOOSE = [
-  'TO SAVE MONEY!',
-  'TO HELP WITH ANY & ALL YOUR WEDDING NEEDS!',
-  'TO BE PREPARED!',
-  'TO BE UNIQUE EXCLUSIVE & LUXURY!',
+  'Transparent planning and disciplined investment across every budget line',
+  'Guidance from first enquiry through your wedding week — one accountable team',
+  'Thorough preparation and contingency thinking so surprises stay off the timeline',
+  'Bespoke execution and discreet luxury, shaped to your culture and guest list',
 ] as const
 
 const WEDDING_OFFERINGS = [
@@ -45,32 +48,42 @@ const TESTIMONIALS: { author: string; quote: string; lang?: string }[] = [
 const WEDDING_YOUTUBE_CHANNEL =
   'https://www.youtube.com/@weddingskybykomodromosgrou3234'
 
-const PROPERTY_GROUPS: { heading: string; items: string[] }[] = [
-  {
-    heading: 'Property care',
-    items: ['Tenant management', 'Rent collection', 'Property marketing'],
-  },
-  {
-    heading: 'Operations & compliance',
-    items: ['Cleaning services', 'Repairs & renovations', 'Legal support', 'Key holding'],
-  },
-  {
-    heading: 'Short-stay & portfolio',
-    items: ['Airbnb management', '24/7 support', 'Property inspections', 'Utility management'],
-  },
-]
+const NAV_SCROLL_THRESHOLD_PX = 28
 
 export default function WeddingServicesPage() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [navScrolled, setNavScrolled] = useState(false)
+  const location = useLocation()
   const pageRef = useReveal()
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    if (!location.hash) {
+      window.scrollTo(0, 0)
+    }
+  }, [location.pathname, location.hash])
+
+  useEffect(() => {
+    const onScroll = () => {
+      setNavScrolled(window.scrollY > NAV_SCROLL_THRESHOLD_PX)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    const hash = location.hash
+    if (!hash || !hash.startsWith('#wedding-package-')) return
+    const id = hash.slice(1)
+    const t = window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 80)
+    return () => window.clearTimeout(t)
+  }, [location.hash])
 
   return (
     <div className="page wedding-page" ref={pageRef}>
-      <header className="topbar">
+      <header className={`topbar${navScrolled ? ' topbar--scrolled' : ''}`}>
         <div className="container topbar-inner">
           <Link to="/" className="logo">
             KOMODROMOS GROUP
@@ -141,25 +154,42 @@ export default function WeddingServicesPage() {
         </div>
       </a>
 
-      <section className="wedding-hero">
-        <div
-          className="wedding-hero__bg"
-          style={{
-            backgroundImage: 'url(/images/services/wedding-service.webp)',
-          }}
-          aria-hidden
-        />
-        <div className="wedding-hero__scrim" aria-hidden />
-        <div className="container wedding-hero__inner">
-          <p className="wedding-hero__eyebrow">Wedding Sky</p>
-          <h1 className="wedding-hero__title">Make your dream wedding come true!</h1>
-          <p className="wedding-hero__lead">
-            From intimate vows to grand celebrations, we design refined experiences
-            in Cyprus—guided by taste, precision, and a passion for love stories
-            that feel unmistakably yours.
-          </p>
+      <section className="wedding-hero" aria-labelledby="wedding-hero-heading">
+        <div className="wedding-hero__layers" aria-hidden>
+          <div
+            className="wedding-hero__bg"
+            style={{
+              backgroundImage:
+                'url(/images/services/companie-services-cover/wedding-sky.webp)',
+            }}
+          />
+          <div className="wedding-hero__vignette" />
+          <div className="wedding-hero__scrim" />
+          <div className="wedding-hero__grain" />
+        </div>
+        <div className="wedding-hero__accent-line" aria-hidden />
+        <div className="container wedding-hero__outer">
+          <div className="wedding-hero__inner">
+            <div className="wedding-hero__panel">
+              <p className="wedding-hero__eyebrow">
+                <span className="wedding-hero__eyebrow-mark" aria-hidden />
+                Wedding Sky
+              </p>
+              <h1 id="wedding-hero-heading" className="wedding-hero__title">
+                Make your dream wedding come true
+              </h1>
+              <p className="wedding-hero__lead">
+                From intimate vows to grand celebrations, we design refined experiences in
+                Cyprus — guided by taste, precision, and love stories that feel unmistakably
+                yours.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
+
+      <WeddingIntroSocial />
+      <WeddingHighlightTiles />
 
       <section className="wedding-video-section">
         <div className="container">
@@ -178,13 +208,16 @@ export default function WeddingServicesPage() {
         </div>
       </section>
 
+      <WeddingPackagesSection />
+
       <section className="wedding-section wedding-services-block">
         <div className="container">
           <p className="wedding-section__eyebrow">Wedding Sky</p>
           <h2 className="wedding-section__title">Our services</h2>
-          <p className="wedding-section__intro">
-            A full spectrum of planning and production services—tailored to your
-            vision, culture, and guest list.
+          <p className="wedding-section__intro wedding-services-block__intro">
+            Planning, creative direction, and on-site production under one disciplined
+            structure — calibrated to your vision, traditions, and the experience you
+            want every guest to remember.
           </p>
           <div className="wedding-offerings">
             {WEDDING_OFFERINGS.map((item) => (
@@ -199,9 +232,14 @@ export default function WeddingServicesPage() {
 
       <section className="wedding-section wedding-why">
         <div className="container">
+          <p className="wedding-section__eyebrow">Our approach</p>
           <h2 className="wedding-section__title wedding-why__title">
-            Why to choose Wedding Sky team…
+            Why couples choose Wedding Sky
           </h2>
+          <p className="wedding-section__intro wedding-why__intro">
+            Standards we apply to every mandate — whether your celebration is intimate or
+            full-scale.
+          </p>
           <div className="wedding-why__grid">
             {WHY_CHOOSE.map((line) => (
               <div key={line} className="wedding-why__card">
@@ -254,27 +292,6 @@ export default function WeddingServicesPage() {
         </div>
       </section>
 
-      <section className="wedding-section wedding-property">
-        <div className="container">
-          <h2 className="wedding-section__title">Your property services</h2>
-          <p className="wedding-section__intro wedding-property__sub">
-            Ready-to-use management and care—structured for clarity and peace of mind.
-          </p>
-          {PROPERTY_GROUPS.map((group) => (
-            <div key={group.heading} className="wedding-property__group">
-              <h3 className="wedding-property__group-title">{group.heading}</h3>
-              <div className="wedding-property__cards">
-                {group.items.map((label) => (
-                  <div key={label} className="wedding-property-card">
-                    {label}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="wedding-section wedding-about" id="wedding-about">
         <div className="container wedding-about__inner">
           <h2 className="wedding-section__title wedding-about__page-title">About us</h2>
@@ -291,46 +308,34 @@ export default function WeddingServicesPage() {
             </div>
 
             <div className="wedding-about__block wedding-about__block--muted wedding-about__panel">
-              <h3 className="wedding-about__subhead">Property management</h3>
-              <p className="wedding-about__copy">
-                We are a professional property management company dedicated to
-                delivering reliable, high-quality services across Cyprus. Our approach
-                is built on trust, attention to detail, and a commitment to maintaining
-                and enhancing the value of every property we manage.
+              <h3 className="wedding-about__subhead">Our approach</h3>
+              <p className="wedding-about__tagline">
+                Precision. Warmth. Discretion.
               </p>
               <p className="wedding-about__copy">
-                With experience in both long-term and short-term rentals, we provide
-                complete solutions tailored to each client&apos;s needs — from daily
-                operations and tenant management to maintenance and financial handling.
-              </p>
-              <p className="wedding-about__copy">
-                Our goal is to make property ownership simple and stress-free. We handle
-                every aspect with professionalism and care, ensuring your property is
-                well-maintained, efficiently managed, and consistently performing at
-                its best.
+                We believe in clear timelines, honest counsel, and calm leadership on
+                the day. Every celebration is built around your story — with vendors,
+                venues, and production aligned to one coherent plan.
               </p>
             </div>
           </div>
 
           <div className="wedding-about__row">
             <div className="wedding-about__block wedding-about__panel">
-              <h3 className="wedding-about__subhead">Our approach</h3>
-              <p className="wedding-about__tagline">
-                Professionalism. Reliability. Transparency.
-              </p>
+              <h3 className="wedding-about__subhead">Production &amp; creative</h3>
               <p className="wedding-about__copy">
-                We believe in clear communication, strong relationships, and delivering
-                results. Every property is managed with the same level of dedication,
-                whether it is a single unit or a full portfolio.
+                From styling and florals to lighting and run-of-show, our producers and
+                partners work to one standard: seamless execution so you can stay
+                present with family and guests.
               </p>
             </div>
 
             <div className="wedding-about__block wedding-about__panel">
               <h3 className="wedding-about__subhead">Our team</h3>
               <p className="wedding-about__copy">
-                Our team consists of experienced professionals with expertise in
-                property management, maintenance, and client service. We work closely
-                with trusted partners to ensure high standards across all services.
+                Planners, coordinators, and specialists across Cyprus — supported by a
+                trusted network of venues, artisans, and hospitality partners who share
+                our commitment to quality.
               </p>
             </div>
           </div>
@@ -400,6 +405,15 @@ export default function WeddingServicesPage() {
                 </li>
               </ul>
             </div>
+          </div>
+          <div className="wedding-visit__map-wrap">
+            <iframe
+              title="Wedding Sky — map"
+              className="wedding-visit__map"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Iris+House+John+Kennedy+Limassol+Cyprus&output=embed"
+            />
           </div>
         </div>
       </section>
