@@ -79,9 +79,6 @@ export default function ContactPage() {
             <Link to="/" onClick={() => setMenuOpen(false)}>
               HOME
             </Link>
-            <Link to="/#about" onClick={() => setMenuOpen(false)}>
-              ABOUT
-            </Link>
             <Link to="/#services" onClick={() => setMenuOpen(false)}>
               SERVICES
             </Link>

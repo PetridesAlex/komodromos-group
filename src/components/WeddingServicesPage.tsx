@@ -48,11 +48,64 @@ const TESTIMONIALS: { author: string; quote: string; lang?: string }[] = [
 const WEDDING_YOUTUBE_CHANNEL =
   'https://www.youtube.com/@weddingskybykomodromosgrou3234'
 
+const WEDDING_FAQ_ITEMS = [
+  {
+    title: '1. About My Special Event in Cyprus',
+    body: 'My Special Event in Cyprus is a wedding planning and coordination company based in Larnaca. It brings together a team of trusted and experienced wedding professionals, each recognized for their expertise in the industry. The company offers all-in-one wedding packages designed to make the planning process smooth, organized, and stress-free for couples across Cyprus.',
+  },
+  {
+    title: '2. Already Booked Some Services?',
+    body: 'Absolutely. Many couples come to us after already arranging some parts of their wedding, whether through other suppliers, friends, or family contacts. We can create a package that includes only the remaining services you still need, ensuring everything works together seamlessly.',
+  },
+  {
+    title: '3. Can I Combine Different Package Options?',
+    body: 'Yes, of course. Our packages are flexible and can be adjusted to suit your preferences. You can mix services from different packages or even build a completely new package from scratch based on your own style, needs, and priorities.',
+  },
+  {
+    title: '4. What Happens If I Remove a Service?',
+    body: 'The price is always adjusted based on the services included. Removing a service will reduce the overall cost, while adding extra services will increase it accordingly. A valid wedding package must include at least 5 services.',
+  },
+  {
+    title: '5. Why Choose an All-in-One Wedding Package?',
+    body: 'An all-in-one package helps you save valuable time, reduce costs, and avoid unnecessary stress. You benefit from professional planning, continuous support, and access to trusted suppliers. Everything is handled in one place, ensuring consistency, quality, and excellent value for money.',
+  },
+  {
+    title: '6. How Does the Company Operate Financially?',
+    body: 'My Special Event in Cyprus works through strong partnerships with experienced professionals. These partners provide commission arrangements, meaning clients do not pay anything extra. This structure allows us to offer premium services at competitive prices while maintaining high standards.',
+  },
+  {
+    title: '7. Are Wedding Packages Flexible?',
+    body: 'Yes. While we offer ready-made packages, all options can be modified, combined, or fully customized. Each couple can create a package that perfectly matches their vision and requirements.',
+  },
+  {
+    title: '8. Do I Need to Book Everything Through You?',
+    body: 'Not at all. You can choose only the services you need. If you already have some arrangements in place, we can build a package using the remaining services. A minimum of 5 services is required to form a complete package.',
+  },
+  {
+    title: '9. Where Do You Provide Wedding Services?',
+    body: 'We organize weddings across the entire island of Cyprus, covering all cities and regions.',
+  },
+  {
+    title: '10. Is the Quotation Binding?',
+    body: 'No. All quotations are provided without any obligation. The final decision to proceed with our services is entirely up to you.',
+  },
+  {
+    title: '11. Where Is Your Office Located?',
+    body: 'Our office is located in Larnaca, Cyprus.',
+  },
+  {
+    title: '12. Is an Office Visit Required for a Quote?',
+    body: 'Not necessarily. While we recommend meeting in person at our Larnaca office for a more detailed discussion, consultations can also be arranged via phone, Viber, or Skype. This allows us to understand your needs and provide a personalized offer wherever you are.',
+  },
+] as const
+
 const NAV_SCROLL_THRESHOLD_PX = 28
 
 export default function WeddingServicesPage() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [navScrolled, setNavScrolled] = useState(false)
+  const [faqOpen, setFaqOpen] = useState(false)
+  const [openFaqIndex, setOpenFaqIndex] = useState<number>(0)
   const location = useLocation()
   const pageRef = useReveal()
 
@@ -81,6 +134,20 @@ export default function WeddingServicesPage() {
     return () => window.clearTimeout(t)
   }, [location.hash])
 
+  useEffect(() => {
+    if (!faqOpen) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setFaqOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [faqOpen])
+
   return (
     <div className="page wedding-page" ref={pageRef}>
       <header className={`topbar${navScrolled ? ' topbar--scrolled' : ''}`}>
@@ -91,9 +158,6 @@ export default function WeddingServicesPage() {
           <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
             <Link to="/" onClick={() => setMenuOpen(false)}>
               HOME
-            </Link>
-            <Link to="/#about" onClick={() => setMenuOpen(false)}>
-              ABOUT
             </Link>
             <Link
               to="/#services"
@@ -209,6 +273,76 @@ export default function WeddingServicesPage() {
       </section>
 
       <WeddingPackagesSection />
+
+      <section className="wedding-section wedding-knowledge-bar" aria-label="Wedding package FAQ access">
+        <div className="container">
+          <button
+            type="button"
+            className="wedding-knowledge-bar__trigger"
+            onClick={() => setFaqOpen(true)}
+          >
+            <span className="wedding-knowledge-bar__line" aria-hidden />
+            <span className="wedding-knowledge-bar__text">Everything You Need to Know</span>
+            <span className="wedding-knowledge-bar__line" aria-hidden />
+          </button>
+        </div>
+      </section>
+
+      {faqOpen ? (
+        <div className="wedding-knowledge-modal" role="dialog" aria-modal="true" aria-labelledby="wedding-knowledge-title">
+          <button
+            type="button"
+            className="wedding-knowledge-modal__backdrop"
+            aria-label="Close information popup"
+            onClick={() => setFaqOpen(false)}
+          />
+          <div className="wedding-knowledge-modal__panel">
+            <div className="wedding-knowledge-modal__head">
+              <h2 id="wedding-knowledge-title">Everything You Need to Know</h2>
+              <button
+                type="button"
+                className="wedding-knowledge-modal__close"
+                onClick={() => setFaqOpen(false)}
+              >
+                Close
+              </button>
+            </div>
+            <div className="wedding-knowledge-modal__list">
+              {WEDDING_FAQ_ITEMS.map((item, index) => (
+                <article
+                  key={item.title}
+                  className={`wedding-knowledge-modal__item${
+                    openFaqIndex === index ? ' wedding-knowledge-modal__item--open' : ''
+                  }`}
+                >
+                  <button
+                    type="button"
+                    className="wedding-knowledge-modal__item-toggle"
+                    onClick={() =>
+                      setOpenFaqIndex((current) => (current === index ? -1 : index))
+                    }
+                    aria-expanded={openFaqIndex === index}
+                    aria-controls={`wedding-knowledge-item-${index}`}
+                  >
+                    <h3>{item.title}</h3>
+                    <span className="wedding-knowledge-modal__item-icon" aria-hidden>
+                      {openFaqIndex === index ? '−' : '+'}
+                    </span>
+                  </button>
+                  <div
+                    id={`wedding-knowledge-item-${index}`}
+                    className="wedding-knowledge-modal__item-body"
+                  >
+                    <div className="wedding-knowledge-modal__item-body-inner">
+                      <p>{item.body}</p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       <section className="wedding-section wedding-services-block">
         <div className="container">

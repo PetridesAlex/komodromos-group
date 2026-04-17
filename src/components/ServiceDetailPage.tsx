@@ -35,9 +35,6 @@ export default function ServiceDetailPage() {
             <Link to="/" onClick={() => setMenuOpen(false)}>
               HOME
             </Link>
-            <Link to="/#about" onClick={() => setMenuOpen(false)}>
-              ABOUT
-            </Link>
             <Link
               to="/#services"
               className="nav-active"

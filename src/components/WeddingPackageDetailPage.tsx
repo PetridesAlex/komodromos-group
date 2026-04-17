@@ -1,0 +1,223 @@
+import { useEffect, useMemo, useState } from 'react'
+import { Link, Navigate, useParams } from 'react-router-dom'
+import Footer from './Footer'
+import TopbarSocialLinks from './TopbarSocialLinks'
+import { useReveal } from '../hooks/useReveal'
+import { weddingPackages } from '../data/weddingPackages'
+import { weddingPackageDetails } from '../data/weddingPackageDetails'
+import { weddingPackageLongContentById } from '../data/weddingBasicPackageContent'
+
+export default function WeddingPackageDetailPage() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const pageRef = useReveal()
+  const { packageId } = useParams()
+
+  const packageTier = useMemo(
+    () => weddingPackages.find((tier) => tier.id === packageId),
+    [packageId]
+  )
+
+  if (!packageTier) {
+    return <Navigate to="/services/wedding#wedding-packages-heading" replace />
+  }
+
+  const detail = weddingPackageDetails[packageTier.id]
+  const longContent = weddingPackageLongContentById[packageTier.id]
+  const ordered = weddingPackages.slice().sort((a, b) => a.sortOrder - b.sortOrder)
+  const index = ordered.findIndex((tier) => tier.id === packageTier.id)
+  const prevTier = index > 0 ? ordered[index - 1] : null
+  const nextTier = index < ordered.length - 1 ? ordered[index + 1] : null
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [packageTier.id])
+
+  return (
+    <div className="page wedding-page wedding-package-detail-page" ref={pageRef}>
+      <header className="topbar">
+        <div className="container topbar-inner">
+          <Link to="/" className="logo">
+            KOMODROMOS GROUP
+          </Link>
+          <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              HOME
+            </Link>
+            <Link to="/services/wedding" onClick={() => setMenuOpen(false)}>
+              WEDDING
+            </Link>
+            <Link to="/services/wedding#wedding-packages-heading" onClick={() => setMenuOpen(false)}>
+              SERVICES
+            </Link>
+            <Link to="/contact" onClick={() => setMenuOpen(false)}>
+              CONTACT
+            </Link>
+          </nav>
+          <TopbarSocialLinks variant="desktop" />
+          <button
+            type="button"
+            className={`hamburger ${menuOpen ? 'hamburger-open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
+
+      <section className="wedding-package-detail-hero">
+        <div className="wedding-package-detail-hero__bg">
+          <img src={packageTier.image} alt="" loading="eager" decoding="async" />
+          <div className="wedding-package-detail-hero__scrim" aria-hidden />
+        </div>
+        <div className="container wedding-package-detail-hero__content">
+          <p className="wedding-package-detail-hero__eyebrow">
+            Wedding package {String(packageTier.sortOrder).padStart(2, '0')}
+          </p>
+          <h1 className="wedding-package-detail-hero__title">
+            {longContent ? longContent.title : packageTier.name}
+          </h1>
+          {longContent ? (
+            <p className="wedding-package-detail-hero__subtitle">{longContent.subtitle}</p>
+          ) : null}
+          <p className="wedding-package-detail-hero__title-el" lang="el">
+            {packageTier.nameEl}
+          </p>
+          <p className="wedding-package-detail-hero__price">
+            {longContent ? longContent.priceDisplay : packageTier.priceDisplay}
+          </p>
+          <p className="wedding-package-detail-hero__summary">{detail.summary}</p>
+          <p className="wedding-package-detail-hero__summary-el" lang="el">
+            {detail.summaryEl}
+          </p>
+          <div className="wedding-package-detail-hero__actions">
+            <Link
+              to="/contact"
+              state={{ serviceInterest: 'Wedding Services', weddingPackage: packageTier.name }}
+              className="wedding-package-detail-hero__action wedding-package-detail-hero__action--primary"
+            >
+              Book consultation
+            </Link>
+            <Link
+              to="/services/wedding#wedding-packages-heading"
+              className="wedding-package-detail-hero__action wedding-package-detail-hero__action--ghost"
+            >
+              Back to packages
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="wedding-package-detail-content">
+        <div className="container wedding-package-detail-content__grid">
+          <article className="wedding-package-detail-panel reveal reveal-delay-1">
+            <h2 className="wedding-package-detail-panel__title">Ideal for</h2>
+            <p className="wedding-package-detail-panel__copy">{detail.idealFor}</p>
+            <p className="wedding-package-detail-panel__copy-el" lang="el">
+              {detail.idealForEl}
+            </p>
+            <div className="wedding-package-detail-panel__meta">
+              <p>{detail.planningWindow}</p>
+              <p lang="el">{detail.planningWindowEl}</p>
+            </div>
+          </article>
+
+          <article className="wedding-package-detail-panel reveal reveal-delay-2">
+            <h2 className="wedding-package-detail-panel__title">Included scope</h2>
+            <ul className="wedding-package-detail-panel__list">
+              {detail.inclusions.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
+        <div className="container wedding-package-detail-nav reveal reveal-delay-3">
+          {prevTier ? (
+            <Link
+              to={`/services/wedding/packages/${prevTier.id}`}
+              className="wedding-package-detail-nav__link"
+            >
+              <span>Previous</span>
+              <strong>{prevTier.name}</strong>
+            </Link>
+          ) : (
+            <div />
+          )}
+
+          {nextTier ? (
+            <Link
+              to={`/services/wedding/packages/${nextTier.id}`}
+              className="wedding-package-detail-nav__link wedding-package-detail-nav__link--next"
+            >
+              <span>Next</span>
+              <strong>{nextTier.name}</strong>
+            </Link>
+          ) : (
+            <div />
+          )}
+        </div>
+
+        {longContent ? (
+          <div
+            className={`container wedding-basic-package reveal reveal-delay-4 wedding-basic-package--${packageTier.id}`}
+          >
+            <section className="wedding-basic-package__intro">
+              <h2>Package includes</h2>
+              <ul className="wedding-basic-package__includes">
+                {longContent.includes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p className="wedding-basic-package__contact">
+                For appointments or more information, contact us at{' '}
+                <strong>{longContent.contactPhone}</strong>.
+              </p>
+            </section>
+
+            <section className="wedding-basic-package__about">
+              <h2>{longContent.aboutTitle}</h2>
+              <p>{longContent.aboutCopy}</p>
+            </section>
+
+            <div className="wedding-basic-package__sections">
+              {longContent.sections.map((section) => (
+                <article key={section.title} className="wedding-basic-package__section-card">
+                  <h3>{section.title}</h3>
+                  {section.intro ? <p>{section.intro}</p> : null}
+                  {section.items ? (
+                    <ul>
+                      {section.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {section.groups?.map((group) => (
+                    <div key={group.title} className="wedding-basic-package__subgroup">
+                      <h4>{group.title}</h4>
+                      <ul>
+                        {group.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </article>
+              ))}
+            </div>
+
+            <section className="wedding-basic-package__important">
+              <h3>Important</h3>
+              <p>{longContent.importantNote}</p>
+            </section>
+          </div>
+        ) : null}
+      </section>
+
+      <Footer />
+    </div>
+  )
+}

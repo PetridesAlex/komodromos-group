@@ -6,6 +6,7 @@ import App from './App.tsx'
 import ContactPage from './components/ContactPage.tsx'
 import ServiceDetailPage from './components/ServiceDetailPage.tsx'
 import WeddingServicesPage from './components/WeddingServicesPage.tsx'
+import WeddingPackageDetailPage from './components/WeddingPackageDetailPage.tsx'
 import BusinessConsultingPage from './components/BusinessConsultingPage.tsx'
 import Preloader from './components/Preloader.tsx'
 import CookieBanner from './components/CookieBanner.tsx'
@@ -24,6 +25,7 @@ function Root() {
             <Route path="/" element={<App />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/services/wedding" element={<WeddingServicesPage />} />
+            <Route path="/services/wedding/packages/:packageId" element={<WeddingPackageDetailPage />} />
             <Route path="/services/consulting" element={<BusinessConsultingPage />} />
             <Route path="/services/:slug" element={<ServiceDetailPage />} />
           </Routes>

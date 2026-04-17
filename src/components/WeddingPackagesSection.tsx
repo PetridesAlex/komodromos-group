@@ -1,7 +1,21 @@
-import { Link } from 'react-router-dom'
+import type { KeyboardEvent } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { weddingPackages } from '../data/weddingPackages'
 
 export default function WeddingPackagesSection() {
+  const navigate = useNavigate()
+
+  const openPackage = (packageId: string) => {
+    navigate(`/services/wedding/packages/${packageId}`)
+  }
+
+  const onCardKeyDown = (event: KeyboardEvent<HTMLElement>, packageId: string) => {
+    if (event.target !== event.currentTarget) return
+    if (event.key !== 'Enter' && event.key !== ' ') return
+    event.preventDefault()
+    openPackage(packageId)
+  }
+
   return (
     <section
       className="wedding-section wedding-packages-section"
@@ -27,7 +41,12 @@ export default function WeddingPackagesSection() {
             <article
               key={pkg.id}
               id={`wedding-package-${pkg.id}`}
-              className="wedding-packages-section__card"
+              className="wedding-packages-section__card wedding-packages-section__card--interactive"
+              role="link"
+              tabIndex={0}
+              onClick={() => openPackage(pkg.id)}
+              onKeyDown={(event) => onCardKeyDown(event, pkg.id)}
+              aria-label={`Open ${pkg.name} package details`}
             >
               <div className="wedding-packages-section__media">
                 <img src={pkg.image} alt="" loading="lazy" decoding="async" />
@@ -46,9 +65,17 @@ export default function WeddingPackagesSection() {
                   {pkg.taglineEl}
                 </p>
                 <Link
+                  to={`/services/wedding/packages/${pkg.id}`}
+                  className="wedding-packages-section__details"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  View package
+                </Link>
+                <Link
                   to="/contact"
                   state={{ serviceInterest: 'Wedding Services', weddingPackage: pkg.name }}
                   className="wedding-packages-section__enquire"
+                  onClick={(event) => event.stopPropagation()}
                 >
                   Enquire
                 </Link>

@@ -26,7 +26,6 @@ function App() {
           <Link to="/" className="logo">KOMODROMOS GROUP</Link>
           <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
             <a href="#home" onClick={() => setMenuOpen(false)}>HOME</a>
-            <a href="#about" onClick={() => setMenuOpen(false)}>ABOUT</a>
             <a href="#services" onClick={() => setMenuOpen(false)}>SERVICES</a>
             <Link to="/contact" onClick={() => setMenuOpen(false)}>CONTACT</Link>
             <TopbarSocialLinks variant="mobile" />
@@ -66,8 +65,12 @@ function App() {
             muted
             loop
             playsInline
+            preload="auto"
           >
-            <source src="/video/0_Discussion_Business_3840x2160.mp4" type="video/mp4" />
+            <source
+              src="/video/freepik_please-remove-the-sceenes_2808246879.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
         <div className="container hero-content">
@@ -84,63 +87,9 @@ function App() {
               staggerDirection="forward"
               className="hero-h1-stagger"
             />
-            <StaggeredText
-              text="Komodromos Group unites specialist companies across lifestyle, business, property, legal, and investment services."
-              as="p"
-              segmentBy="words"
-              direction="bottom"
-              delay={40}
-              duration={0.5}
-              blur={true}
-              staggerDirection="forward"
-              className="hero-p-stagger"
-            />
           </div>
           <div className="hero-cta-wrap reveal reveal-delay-2">
             <a href="#services" className="hero-cta">EXPLORE OUR COMPANIES</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="section about">
-        <div className="about-glow about-glow-1" />
-        <div className="about-glow about-glow-2" />
-        <div className="container about-grid">
-          <div className="about-content reveal-left reveal">
-            <p className="eyebrow">ABOUT GROUP</p>
-            <h2>Independent Companies, Unified Standards</h2>
-            <p className="about-copy">
-              Our group structure brings together premium specialist services
-              under one modern strategic umbrella.
-            </p>
-            <p className="about-copy">
-              We develop high-trust businesses with a shared commitment to
-              quality, discretion, and long-term value. Every company operates
-              with sector expertise while aligning with one clear vision:
-              confident delivery at a premium level.
-            </p>
-            <div className="about-badges">
-              <div className="about-badge reveal reveal-delay-1">
-                <strong>11+</strong>
-                <span>Companies</span>
-              </div>
-              <div className="about-badge reveal reveal-delay-2">
-                <strong>5</strong>
-                <span>Sectors</span>
-              </div>
-              <div className="about-badge reveal reveal-delay-3">
-                <strong>1</strong>
-                <span>Vision</span>
-              </div>
-            </div>
-          </div>
-          <div className="about-visual reveal-right reveal">
-            <div className="about-img-card">
-              <img
-                src="/images/leadership-meeting.jpg"
-                alt="Komodromos Group team"
-              />
-            </div>
           </div>
         </div>
       </section>

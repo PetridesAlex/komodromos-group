@@ -77,6 +77,7 @@ export default function SocialHub() {
         type="button"
         ref={btnRef}
         className="social-hub-fab"
+        aria-label={open ? 'Close social channels' : 'Open social channels'}
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((v) => !v)}
@@ -96,17 +97,6 @@ export default function SocialHub() {
             <circle cx="6" cy="12" r="3" />
             <circle cx="18" cy="19" r="3" />
             <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" />
-          </svg>
-          <svg
-            className="social-hub-fab-icon social-hub-fab-icon--close"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            aria-hidden
-          >
-            <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </span>
         <span className="social-hub-fab-text">Social</span>
