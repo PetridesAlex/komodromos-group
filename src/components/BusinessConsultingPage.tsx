@@ -11,6 +11,7 @@ import {
   X,
 } from 'lucide-react'
 import Footer from './Footer'
+import SiteLogo from './SiteLogo'
 import TopbarSocialLinks from './TopbarSocialLinks'
 import ConsultingServiceCardsCarousel from './ConsultingServiceCardsCarousel'
 import Profile3 from './profile-3'
@@ -543,9 +544,7 @@ export default function BusinessConsultingPage() {
     <div className="page consulting-page" ref={pageRef}>
       <header className="topbar">
         <div className="container topbar-inner">
-          <Link to="/" className="logo">
-            KOMODROMOS GROUP
-          </Link>
+          <SiteLogo />
           <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
             <Link to="/" onClick={() => setMenuOpen(false)}>
               HOME

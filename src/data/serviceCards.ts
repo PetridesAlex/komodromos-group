@@ -5,8 +5,13 @@ export type ServiceCard = {
   description: string
   tags: string[]
   image: string
-  /** Optional brand mark PNG (transparent), `public/.../cards-logos-services/` */
+  /** Optional brand mark PNG, `public/.../cards-logos-services/` */
   brandLogo?: string
+  /**
+   * `lighten` blends gold-on-dark-matte marks into the card. Use `normal` for
+   * light (e.g. white) mattes so the mark is not washed out.
+   */
+  brandLogoBlend?: 'lighten' | 'normal'
 }
 
 /** Homepage / service list covers in `public/images/services/companie-services-cover/` */
@@ -23,7 +28,8 @@ export const serviceCards: ServiceCard[] = [
       'Discreet lifestyle management crafted for individuals and families who expect precision, privacy, and exceptional standards.',
     tags: ['PRIVATE CONCIERGE', 'TRAVEL PLANNING'],
     image: `${SVC_COVER}/luxury-travel.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-luxury-sky.png`,
+    brandLogo: `${SVC_CARD_LOGO}/luxury-sky.png`,
+    brandLogoBlend: 'lighten',
   },
   {
     slug: 'wedding',
@@ -33,7 +39,8 @@ export const serviceCards: ServiceCard[] = [
       'Concept-to-execution event direction for milestone celebrations, destination weddings, and executive experiences.',
     tags: ['CREATIVE DIRECTION', 'GUEST MANAGEMENT', 'VENUE PRODUCTION'],
     image: `${SVC_COVER}/wedding-sky.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-wedding.png`,
+    brandLogo: `${SVC_CARD_LOGO}/wedding-sky.png`,
+    brandLogoBlend: 'lighten',
   },
   {
     slug: 'pool',
@@ -43,7 +50,8 @@ export const serviceCards: ServiceCard[] = [
       'Tailored exterior environments designed for leisure, hospitality, and long-term property value.',
     tags: ['POOL CONCEPTS', 'LANDSCAPE PLANNING', 'OUTDOOR INFRASTRUCTURE'],
     image: `${SVC_COVER}/Swimming-ppool.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-pool.png`,
+    brandLogo: `${SVC_CARD_LOGO}/blue-sky.png`,
+    brandLogoBlend: 'lighten',
   },
   {
     slug: 'storage',
@@ -53,7 +61,8 @@ export const serviceCards: ServiceCard[] = [
       'Enterprise-grade warehousing and container capacity for businesses that need space, security, and predictable monthly terms.',
     tags: ['INVENTORY FLOW', 'SECURE STORAGE', 'DISTRIBUTION SUPPORT'],
     image: `${SVC_COVER}/Storage-rent.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-storage.png`,
+    brandLogo: `${SVC_CARD_LOGO}/storage-to-rent.png`,
+    brandLogoBlend: 'lighten',
   },
   {
     slug: 'consulting',
@@ -63,7 +72,8 @@ export const serviceCards: ServiceCard[] = [
       'Executive advisory services helping organizations scale with clarity, governance, and market confidence.',
     tags: ['STRATEGY DESIGN', 'GROWTH MODELING', 'PERFORMANCE OVERSIGHT'],
     image: `${SVC_COVER}/10%20Business-consulting.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/Bussiness-consulting%20.png`,
+    brandLogo: `${SVC_CARD_LOGO}/komodromos-businness-consulting.png`,
+    brandLogoBlend: 'normal',
   },
   {
     slug: 'aviation',
@@ -73,7 +83,8 @@ export const serviceCards: ServiceCard[] = [
       'Specialized aviation solutions and development pathways for professionals and organizations in the sector.',
     tags: ['CREW DEVELOPMENT', 'FLIGHT SUPPORT', 'CAREER MENTORING'],
     image: `${SVC_COVER}/Global-wings.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-global-wings.png`,
+    brandLogo: `${SVC_CARD_LOGO}/global-wings.png`,
+    brandLogoBlend: 'normal',
   },
   {
     slug: 'astreal',
@@ -83,7 +94,8 @@ export const serviceCards: ServiceCard[] = [
       'End-to-end real estate structuring, from opportunity analysis to development strategy and portfolio growth.',
     tags: ['PROJECT PLANNING', 'INVESTMENT ADVISORY', 'ASSET MANAGEMENT'],
     image: `${SVC_COVER}/Astreal-developers.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-astreal-developers.png`,
+    brandLogo: `${SVC_CARD_LOGO}/astreal-developers.png`,
+    brandLogoBlend: 'lighten',
   },
   {
     slug: 'hr',
@@ -93,7 +105,8 @@ export const serviceCards: ServiceCard[] = [
       'Human capital services that align talent strategy, leadership development, and organizational outcomes.',
     tags: ['EXECUTIVE SEARCH', 'HR FRAMEWORKS', 'TALENT DEVELOPMENT'],
     image: `${SVC_COVER}/11%20The-circle.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-circle-theory.png`,
+    brandLogo: `${SVC_CARD_LOGO}/the-circle-theory.png`,
+    brandLogoBlend: 'lighten',
   },
   {
     slug: 'tax',
@@ -103,7 +116,8 @@ export const serviceCards: ServiceCard[] = [
       'Trusted financial and legal support ensuring transparent operations, compliant structures, and informed decisions.',
     tags: ['TAX PLANNING', 'FINANCIAL REPORTING', 'REGULATORY ADVISORY'],
     image: `${SVC_COVER}/tax.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-tax.png`,
+    brandLogo: `${SVC_CARD_LOGO}/tax-nex.png`,
+    brandLogoBlend: 'lighten',
   },
   {
     slug: 'janchapelle',
@@ -113,7 +127,8 @@ export const serviceCards: ServiceCard[] = [
       'One of the leading Wedding Dress houses. High-end fabrications and meticulous sewing techniques for brides who demand perfection.',
     tags: ['BRIDAL COUTURE', 'CUSTOM FITTINGS', 'LUXURY FABRICS'],
     image: `${SVC_COVER}/Bridal.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/logo-no.png`,
+    brandLogo: `${SVC_CARD_LOGO}/jan-chapelle.png`,
+    brandLogoBlend: 'lighten',
   },
   {
     slug: 'adr-mediation',
@@ -122,8 +137,9 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Professional mediation and arbitration services. We see solutions where others see problems — confidential, impartial, and results-driven.',
     tags: ['MEDIATION', 'ARBITRATION', 'CONFLICT RESOLUTION'],
-    image: `${SVC_COVER}/adr.webp`,
-    brandLogo: `${SVC_CARD_LOGO}/adr.png`,
+    image: `${SVC_COVER}/justice-law.webp`,
+    brandLogo: `${SVC_CARD_LOGO}/law-logo.png`,
+    brandLogoBlend: 'lighten',
   },
 ]
 

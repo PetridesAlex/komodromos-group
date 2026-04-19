@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Footer from './Footer'
+import SiteLogo from './SiteLogo'
 import TopbarSocialLinks from './TopbarSocialLinks'
 import { useReveal } from '../hooks/useReveal'
 import { serviceCards } from '../data/serviceCards'
@@ -72,9 +73,7 @@ export default function ContactPage() {
     <div className="page" ref={pageRef}>
       <header className="topbar">
         <div className="container topbar-inner">
-          <Link to="/" className="logo">
-            KOMODROMOS GROUP
-          </Link>
+          <SiteLogo />
           <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
             <Link to="/" onClick={() => setMenuOpen(false)}>
               HOME

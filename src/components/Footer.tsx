@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+import { MAIN_LOGO } from '../data/mainLogo'
 import { socialLinks } from '../data/socialLinks'
 
 const footerLinks = [
@@ -26,8 +28,17 @@ export default function Footer() {
           <div className="footer2-orb footer2-orb-5" />
         </div>
         <div className="footer2-brand">
-          <span className="footer2-logo">Komodromos Group</span>
-          <span className="footer2-sub">of Companies</span>
+          <Link to="/" className="footer2-logo">
+            <img
+              src={MAIN_LOGO.src}
+              alt="Komodromos Group"
+              className="footer2-logo-img"
+              width={MAIN_LOGO.width}
+              height={MAIN_LOGO.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </Link>
         </div>
 
         <div className="footer2-actions">

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { UserCircle2 } from 'lucide-react'
 import Footer from './Footer'
+import SiteLogo from './SiteLogo'
 import TopbarSocialLinks from './TopbarSocialLinks'
 import WeddingIntroSocial from './WeddingIntroSocial'
 import WeddingHighlightTiles from './WeddingHighlightTiles'
@@ -152,9 +153,7 @@ export default function WeddingServicesPage() {
     <div className="page wedding-page" ref={pageRef}>
       <header className={`topbar${navScrolled ? ' topbar--scrolled' : ''}`}>
         <div className="container topbar-inner">
-          <Link to="/" className="logo">
-            KOMODROMOS GROUP
-          </Link>
+          <SiteLogo />
           <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
             <Link to="/" onClick={() => setMenuOpen(false)}>
               HOME

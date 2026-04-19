@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { MAIN_LOGO } from '../data/mainLogo'
 
 export default function Preloader({ onDone }: { onDone: () => void }) {
   const [progress, setProgress] = useState(0)
@@ -42,8 +43,14 @@ export default function Preloader({ onDone }: { onDone: () => void }) {
 
       <div className="preloader-content">
         <div className="preloader-logo-wrap">
-          <span className="preloader-logo">KOMODROMOS</span>
-          <span className="preloader-group">GROUP</span>
+          <img
+            src={MAIN_LOGO.src}
+            alt="Komodromos Group"
+            className="preloader-logo-img"
+            width={MAIN_LOGO.width}
+            height={MAIN_LOGO.height}
+            decoding="async"
+          />
         </div>
         <p className="preloader-tagline">Premium Companies &middot; Unified Standards</p>
       </div>

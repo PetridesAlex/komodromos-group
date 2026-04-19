@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from './components/Footer'
+import SiteLogo from './components/SiteLogo'
 import TopbarSocialLinks from './components/TopbarSocialLinks'
 import StaggeredText from './components/StaggeredText'
 import MeetTheTeam from './components/MeetTheTeam'
@@ -23,7 +24,7 @@ function App() {
     <div className="page" ref={pageRef}>
       <header className="topbar">
         <div className="container topbar-inner">
-          <Link to="/" className="logo">KOMODROMOS GROUP</Link>
+          <SiteLogo />
           <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
             <a href="#home" onClick={() => setMenuOpen(false)}>HOME</a>
             <a href="#services" onClick={() => setMenuOpen(false)}>SERVICES</a>
@@ -164,7 +165,7 @@ function App() {
                         <img
                           src={card.brandLogo}
                           alt=""
-                          className="service-brand-logo"
+                          className={`service-brand-logo${card.brandLogoBlend === 'lighten' ? ' service-brand-logo--blend-lighten' : ''}`}
                           loading="lazy"
                           decoding="async"
                         />
