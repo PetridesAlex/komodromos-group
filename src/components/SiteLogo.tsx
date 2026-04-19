@@ -1,9 +1,27 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { MAIN_LOGO } from '../data/mainLogo'
 
 export default function SiteLogo() {
+  const location = useLocation()
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname !== '/') return
+    e.preventDefault()
+    document.getElementById('home')?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'auto'
+        : 'smooth',
+      block: 'start',
+    })
+    window.history.replaceState(null, '', '/#home')
+  }
+
   return (
-    <Link to="/" className="logo">
+    <Link
+      to={{ pathname: '/', hash: 'home' }}
+      className="logo"
+      onClick={handleLogoClick}
+    >
       <img
         src={MAIN_LOGO.src}
         alt="Komodromos Group"
