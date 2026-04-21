@@ -147,3 +147,8 @@ export function getServiceBySlug(slug: string | undefined) {
   if (!slug) return undefined
   return serviceCards.find((c) => c.slug === slug)
 }
+
+/** Detail route for each homepage card (`/services/wedding`, `/services/pool`, etc.). */
+export function getServicePagePath(slug: string): string {
+  return `/services/${slug}`
+}

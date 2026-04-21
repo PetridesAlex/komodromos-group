@@ -6,7 +6,7 @@ import TopbarSocialLinks from './components/TopbarSocialLinks'
 import StaggeredText from './components/StaggeredText'
 import MeetTheTeam from './components/MeetTheTeam'
 import { useReveal } from './hooks/useReveal'
-import { serviceCards } from './data/serviceCards'
+import { getServicePagePath, serviceCards } from './data/serviceCards'
 
 const marqueeItems = [
   'ADR DISPUTE MEDIATION SERVICES',
@@ -21,13 +21,48 @@ function App() {
   const pageRef = useReveal()
 
   return (
-    <div className="page" ref={pageRef}>
+    <div className="page home-page" ref={pageRef}>
       <header className="topbar">
         <div className="container topbar-inner">
           <SiteLogo />
           <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
             <a href="#home" onClick={() => setMenuOpen(false)}>HOME</a>
-            <a href="#services" onClick={() => setMenuOpen(false)}>SERVICES</a>
+            <div className="nav-dropdown">
+              <a
+                href="#services"
+                className="nav-dropdown__trigger"
+                onClick={() => setMenuOpen(false)}
+              >
+                SERVICES
+              </a>
+              <div
+                className="nav-dropdown__panel"
+                role="navigation"
+                aria-label="Group companies and services"
+              >
+                <Link
+                  to="/#services"
+                  className="nav-dropdown__link nav-dropdown__link--all"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  See our services
+                </Link>
+                <ul className="nav-dropdown__list">
+                  {serviceCards.map((card) => (
+                    <li key={card.slug}>
+                      <Link
+                        to={getServicePagePath(card.slug)}
+                        className="nav-dropdown__link"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        <span className="nav-dropdown__title">{card.title}</span>
+                        <span className="nav-dropdown__meta">{card.eyebrow}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
             <Link to="/contact" onClick={() => setMenuOpen(false)}>CONTACT</Link>
             <TopbarSocialLinks variant="mobile" />
           </nav>
@@ -59,21 +94,7 @@ function App() {
       </div>
 
       <section id="home" className="hero-section">
-        <div className="hero-bg">
-          <video
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          >
-            <source
-              src="/video/freepik_please-remove-the-sceenes_2808246879.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
+        <div className="hero-bg hero-bg--static" aria-hidden />
         <div className="container hero-content">
           <div className="hero-text">
             <StaggeredText
@@ -143,7 +164,7 @@ function App() {
                 className="service-card reveal-scale reveal"
               >
                 <div
-                  className={`service-inner ${index % 2 !== 0 ? 'img-left' : ''}`}
+                  className={`service-inner ${index % 2 !== 0 || card.slug === 'vip' ? 'img-left' : ''}`}
                 >
                   <div className="service-media">
                     <div className="service-card-badge" aria-hidden>

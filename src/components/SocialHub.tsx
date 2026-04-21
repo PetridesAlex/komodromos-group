@@ -65,7 +65,11 @@ export default function SocialHub() {
         <ul className="social-hub-list">
           {socialLinks.map((s) => (
             <li key={s.label}>
-              <a href={s.href} className="social-hub-item" aria-label={s.label}>
+              <a
+                href={s.href}
+                className={`social-hub-item social-hub-item--${s.navClass}`}
+                aria-label={s.label}
+              >
                 <span className="social-hub-item-icon">{s.svg}</span>
                 <span className="social-hub-item-label">{s.label}</span>
               </a>

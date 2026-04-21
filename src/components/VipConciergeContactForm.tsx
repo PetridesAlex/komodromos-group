@@ -6,7 +6,6 @@ export default function VipConciergeContactForm() {
     name: '',
     email: '',
     phone: '',
-    company: '',
     vipService: '',
     message: '',
   })
@@ -84,31 +83,17 @@ export default function VipConciergeContactForm() {
                 </div>
               </div>
 
-              <div className="form-row">
-                <div className="form-field">
-                  <label htmlFor="vip-inquiry-phone">Phone</label>
-                  <input
-                    id="vip-inquiry-phone"
-                    name="phone"
-                    type="tel"
-                    autoComplete="tel"
-                    placeholder="+357 00 000 000"
-                    value={form.phone}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="vip-inquiry-company">Company (optional)</label>
-                  <input
-                    id="vip-inquiry-company"
-                    name="company"
-                    type="text"
-                    autoComplete="organization"
-                    placeholder="Organization"
-                    value={form.company}
-                    onChange={handleChange}
-                  />
-                </div>
+              <div className="form-field">
+                <label htmlFor="vip-inquiry-phone">Phone</label>
+                <input
+                  id="vip-inquiry-phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  placeholder="+357 00 000 000"
+                  value={form.phone}
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="form-field">

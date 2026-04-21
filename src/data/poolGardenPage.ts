@@ -1,4 +1,11 @@
 const COVER = '/images/services/companie-services-cover'
+const POOL_PAGE_ASSETS = '/images/services/swimming-pool-garden-services'
+
+/** Shared pool photography used across Pool & Garden sections (no unrelated service covers). */
+const POOL_CARD_HERO = `${POOL_PAGE_ASSETS}/pool-hero.webp`
+const POOL_CARD_ROCK = `${POOL_PAGE_ASSETS}/reconstituted-rock-pool-feature.png`
+const POOL_CARD_POOL_1 = `${COVER}/Swimming-pool%201.webp`
+const POOL_CARD_POOL_2 = `${COVER}/Swimming-ppool.webp`
 
 export type PoolGardenShowcaseItem = {
   label: string
@@ -17,7 +24,7 @@ export const poolCategories: PoolGardenShowcaseItem[] = [
   },
   {
     label: 'Infinity',
-    imageSrc: `${COVER}/luxury-travel.webp`,
+    imageSrc: POOL_CARD_HERO,
   },
 ]
 
@@ -28,43 +35,57 @@ export type PoolServiceRepairItem = {
 
 /** Service, renovation & repair — full capability matrix */
 export const poolServiceRenovationRepair: PoolServiceRepairItem[] = [
-  { label: 'Fountains', imageSrc: `${COVER}/wedding-sky.webp` },
-  { label: 'Cooling and heating', imageSrc: `${COVER}/Global-wings.webp` },
+  {
+    label: 'Fountains',
+    imageSrc: POOL_CARD_HERO,
+  },
+  {
+    label: 'Cooling and heating',
+    imageSrc: POOL_CARD_POOL_1,
+  },
   {
     label: 'Reconstituted rock features',
-    imageSrc:
-      '/images/services/swimming-pool-garden-services/reconstituted-rock-pool-feature.png',
+    imageSrc: POOL_CARD_ROCK,
   },
-  { label: 'Swim spas', imageSrc: `${COVER}/Swimming-pool%201.webp` },
-  { label: 'Waterparks', imageSrc: `${COVER}/Storage-rent.webp` },
-  { label: 'Bar and stools', imageSrc: `${COVER}/Swimming-ppool.webp` },
+  {
+    label: 'Swim spas',
+    imageSrc: POOL_CARD_POOL_2,
+  },
+  {
+    label: 'Waterparks',
+    imageSrc: POOL_CARD_HERO,
+  },
+  {
+    label: 'Bar and stools',
+    imageSrc: POOL_CARD_POOL_2,
+  },
   {
     label: 'Hotels & resorts',
-    imageSrc: `${COVER}/justice-law.webp`,
+    imageSrc: POOL_CARD_HERO,
   },
   {
     label: 'Service and maintenance',
-    imageSrc: `${COVER}/tax.webp`,
+    imageSrc: POOL_CARD_POOL_1,
   },
   {
     label: 'Chemicals',
-    imageSrc: `${COVER}/Jan-chapelle%20.webp`,
+    imageSrc: POOL_CARD_POOL_2,
   },
 ]
 
-/** Pool internal linings — finishes */
+/** Pool internal linings — finishes (same pool imagery vocabulary as other pool strips) */
 export const poolInternalLinings: PoolGardenShowcaseItem[] = [
   {
     label: 'Liners',
-    imageSrc: `${COVER}/Bridal.webp`,
+    imageSrc: POOL_CARD_POOL_1,
   },
   {
     label: 'Mosaic',
-    imageSrc: `${COVER}/11%20The-circle.webp`,
+    imageSrc: POOL_CARD_ROCK,
   },
   {
     label: 'Ceramic',
-    imageSrc: `${COVER}/10%20Business-consulting.webp`,
+    imageSrc: POOL_CARD_HERO,
   },
 ]
 

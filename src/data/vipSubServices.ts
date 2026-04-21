@@ -34,21 +34,6 @@ export const vipSubServices: VipSubServiceItem[] = [
     image: `${base}/vip-services.webp`,
   },
   {
-    slug: 'aerophotography',
-    title: 'Aerophotography',
-    image: `${base}/Aerophotography.webp`,
-  },
-  {
-    slug: 'aerial-banner-towing',
-    title: 'Aerial Banner Towing',
-    image: `${base}/Aerial-banner-towing.webp`,
-  },
-  {
-    slug: 'helicopters',
-    title: 'Helicopters',
-    image: `${base}/Helicopters.webp`,
-  },
-  {
     slug: 'fishing-scuba',
     title: 'Fishing & Scuba Diving',
     image: `${base}/Fishing-scuba-diving.webp`,
@@ -57,11 +42,6 @@ export const vipSubServices: VipSubServiceItem[] = [
     slug: 'real-estate',
     title: 'Real Estate',
     image: `${base}/Real-estate.webp`,
-  },
-  {
-    slug: 'wedding-packages',
-    title: 'Wedding Packages',
-    image: `${base}/wedding-package.webp`,
   },
   {
     slug: 'casino',

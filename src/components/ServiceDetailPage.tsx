@@ -61,7 +61,11 @@ export default function ServiceDetailPage() {
       </header>
 
       <section className="service-detail-hero">
-        <div className="service-detail-hero-bg" aria-hidden />
+        <div
+          className="service-detail-hero-bg"
+          aria-hidden
+          style={{ backgroundImage: `url("${card.image}")` }}
+        />
         <div className="service-detail-hero-scrim" />
         <div className="service-detail-hero-glow service-detail-hero-glow-1" />
         <div className="service-detail-hero-glow service-detail-hero-glow-2" />

@@ -16,13 +16,13 @@ import {
 
 const pillarIcons = [Home, Building2, Layers] as const
 
-/** Matches file in public/images/services/swimming-pool-garden-services/ */
+/** Primary hero — resort-style pool water (consistent with Pool Categories → Infinity) */
 const POOL_HERO_IMAGE =
-  '/images/services/swimming-pool-garden-services/reconstituted-rock-pool-feature.png'
-
-/** Hospitality-style pool scene for the editorial strip below “Where we add value” */
-const POOL_EDITORIAL_IMAGE =
   '/images/services/swimming-pool-garden-services/pool-hero.webp'
+
+/** Editorial strip — alternate pool detail so hero and insight section differ visually */
+const POOL_EDITORIAL_IMAGE =
+  '/images/services/swimming-pool-garden-services/reconstituted-rock-pool-feature.png'
 
 export default function PoolGardenServicesPage() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -283,7 +283,7 @@ export default function PoolGardenServicesPage() {
           <div className="pool-garden-insight__media reveal">
             <img
               src={POOL_EDITORIAL_IMAGE}
-              alt="Resort-style swimming pool with clear blue water and surrounding gardens"
+              alt="Swimming pool with natural rock surround and planting"
               loading="lazy"
               decoding="async"
               width={1200}
