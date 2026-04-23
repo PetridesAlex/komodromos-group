@@ -9,6 +9,7 @@ import WeddingServicesPage from './components/WeddingServicesPage.tsx'
 import WeddingPackageDetailPage from './components/WeddingPackageDetailPage.tsx'
 import BusinessConsultingPage from './components/BusinessConsultingPage.tsx'
 import PoolGardenServicesPage from './components/PoolGardenServicesPage.tsx'
+import AviationServicesPage from './components/AviationServicesPage.tsx'
 import Preloader from './components/Preloader.tsx'
 import CookieBanner from './components/CookieBanner.tsx'
 import SocialHub from './components/SocialHub.tsx'
@@ -29,6 +30,7 @@ function Root() {
             <Route path="/services/wedding/packages/:packageId" element={<WeddingPackageDetailPage />} />
             <Route path="/services/consulting" element={<BusinessConsultingPage />} />
             <Route path="/services/pool" element={<PoolGardenServicesPage />} />
+            <Route path="/services/aviation" element={<AviationServicesPage />} />
             <Route path="/services/:slug" element={<ServiceDetailPage />} />
           </Routes>
         </BrowserRouter>

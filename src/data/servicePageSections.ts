@@ -47,34 +47,6 @@ export const SERVICE_PAGE_CONTENT: Partial<Record<string, ServicePageContent>> =
     closing:
       'Tell us about your site and timeline — we will respond with a clear next step.',
   },
-  aviation: {
-    leadTitle: 'Aviation pathways with professional clarity',
-    lead:
-      'We help crews and organisations strengthen capability, compliance, and career momentum — pairing industry realism with structured development.',
-    offeringsTitle: 'Capability focus',
-    offerings: [
-      {
-        title: 'Crew readiness',
-        description:
-          'Training alignment, competency mapping, and performance coaching where it matters.',
-      },
-      {
-        title: 'Operational insight',
-        description:
-          'Support that respects regulators, operators, and the pace of live operations.',
-      },
-      {
-        title: 'Career mentoring',
-        description:
-          'Guidance for professionals navigating moves, certifications, and leadership steps.',
-      },
-    ],
-    bullets: [
-      'Discreet, sector-aware communication',
-      'Programmes adaptable to fleet and organisational context',
-      'Connections to trusted industry partners when required',
-    ],
-  },
   astreal: {
     leadTitle: 'Development intelligence for serious capital',
     lead:

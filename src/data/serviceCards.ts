@@ -80,8 +80,8 @@ export const serviceCards: ServiceCard[] = [
     eyebrow: 'AVIATION EXCELLENCE',
     title: 'Aviation Agency Services',
     description:
-      'Specialized aviation solutions and development pathways for professionals and organizations in the sector.',
-    tags: ['CREW DEVELOPMENT', 'FLIGHT SUPPORT', 'CAREER MENTORING'],
+      'Private aviation orchestration — charter, management, and advisory for those who travel on their own terms.',
+    tags: ['CHARTER', 'AIRCRAFT MANAGEMENT', 'AVIATION ADVISORY'],
     image: `${SVC_COVER}/Global-wings.webp`,
     brandLogo: `${SVC_CARD_LOGO}/global-wings.png`,
     brandLogoBlend: 'normal',
