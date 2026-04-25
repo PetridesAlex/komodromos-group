@@ -57,7 +57,9 @@ export const vipSubServices: VipSubServiceItem[] = [
   },
   {
     slug: 'casino',
-    title: 'Casino',
+    title: 'Casino Experiences',
+    kicker: 'Casino',
+    nameLine: 'experiences',
     image: `${base}/cazino.webp`,
   },
   {

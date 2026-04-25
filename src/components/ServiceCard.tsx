@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const FALLBACK_IMAGE = '/images/services/vip-service/vip-services.webp'
+const FALLBACK_IMAGE = '/images/services/vip-service/luxury-travel.webp'
 
 /** Two-line layout when it stays readable (avoids splitting phrases with "&"). */
 function splitDisplayTitle(title: string): { kicker: string; main: string } | null {
