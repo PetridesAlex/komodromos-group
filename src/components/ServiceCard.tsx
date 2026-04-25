@@ -19,6 +19,9 @@ export type ServiceCardProps = {
   className?: string
   /** Rotates three distinct title treatments (0–2). */
   tone?: 0 | 1 | 2
+  /** When both set, used instead of automatic split from `title`. */
+  kicker?: string
+  nameLine?: string
 }
 
 export function ServiceCard({
@@ -28,12 +31,17 @@ export function ServiceCard({
   state,
   className = '',
   tone = 0,
+  kicker: kickerProp,
+  nameLine: nameLineProp,
 }: ServiceCardProps) {
   const [src, setSrc] = useState(image)
   useEffect(() => {
     setSrc(image)
   }, [image])
-  const split = splitDisplayTitle(title)
+  const split =
+    kickerProp && nameLineProp
+      ? { kicker: kickerProp, main: nameLineProp }
+      : splitDisplayTitle(title)
   const toneClass = `vip-service-card--tone-${tone}`
 
   return (

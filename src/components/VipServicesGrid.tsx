@@ -25,6 +25,8 @@ export default function VipServicesGrid() {
                 key={item.slug}
                 title={item.title}
                 image={item.image}
+                kicker={item.kicker}
+                nameLine={item.nameLine}
                 tone={(index % 3) as 0 | 1 | 2}
                 to="/contact"
                 state={{

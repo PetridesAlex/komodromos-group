@@ -5,17 +5,24 @@ export type VipSubServiceItem = {
   slug: string
   title: string
   image: string
+  /** When set, overrides automatic title split (kicker + name lines). */
+  kicker?: string
+  nameLine?: string
 }
 
 export const vipSubServices: VipSubServiceItem[] = [
   {
     slug: 'maritime',
-    title: 'Maritime Services',
+    title: 'Maritime Services & Experiences',
+    kicker: 'Maritime',
+    nameLine: 'Services & experiences',
     image: `${base}/luxury-yacht.webp`,
   },
   {
     slug: 'air',
-    title: 'Air Services',
+    title: 'Air Services & Experiences',
+    kicker: 'Air',
+    nameLine: 'Services & experiences',
     image: `${base}/air-services.webp`,
   },
   {
@@ -25,13 +32,17 @@ export const vipSubServices: VipSubServiceItem[] = [
   },
   {
     slug: 'limousines',
-    title: 'Limousines',
+    title: 'Limousines Experiences',
+    kicker: 'Limousines',
+    nameLine: 'experiences',
     image: `${base}/limouzine.webp`,
   },
   /** General VIP / lifestyle concierge — `public/images/services/vip-service/private-jet.webp` */
   {
     slug: 'vip-concierge',
-    title: 'VIP Services',
+    title: 'VIP Security & Protection',
+    kicker: 'VIP',
+    nameLine: 'Security & protection',
     image: `${base}/private-jet.webp`,
   },
   {

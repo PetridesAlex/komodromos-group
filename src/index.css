@@ -6088,13 +6088,14 @@ a.action {
   transform: translateY(-3px);
 }
 
-/* Shared name line */
-.vip-service-card__name {
+/* Shared name line (visual treatment applied per tone below) */
+.vip-service-card__name,
+.vip-service-card__name--full {
   display: block;
   max-width: 95%;
   transition:
     letter-spacing 0.35s ease,
-    filter 0.35s ease,
+    border-color 0.3s ease,
     color 0.3s ease;
 }
 
@@ -6106,60 +6107,39 @@ a.action {
   letter-spacing: 0.34em;
   text-transform: uppercase;
   line-height: 1.35;
-  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.75);
+  color: var(--service-light-blue);
+  color: color-mix(in srgb, var(--service-light-blue) 94%, #ffffff);
+  text-shadow:
+    0 1px 10px rgba(0, 0, 0, 0.65),
+    0 0 18px rgba(165, 200, 232, 0.22);
 }
 
-/* ── Tone 0: light-blue kicker + Playfair gradient name (editorial) ── */
+/* ── Kicker (unchanged per tone) ── */
 .vip-service-card--tone-0 .vip-service-card__kicker {
-  color: rgba(200, 225, 248, 0.92);
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.55);
   font-weight: 600;
   letter-spacing: 0.36em;
 }
 
-.vip-service-card--tone-0 .vip-service-card__name {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: clamp(1.12rem, 2.3vw, 1.55rem);
-  letter-spacing: 0.01em;
-  text-transform: none;
-  line-height: 1.2;
-  color: transparent;
-  background: linear-gradient(
-    135deg,
-    #f0e2cc 0%,
-    #faf4e8 28%,
-    #d4b46a 52%,
-    #c5a059 68%,
-    #8f7344 100%
-  );
-  background-size: 180% 180%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.65));
-  animation: vipTitleGoldShift 8s ease-in-out infinite;
-}
-
-.vip-service-card--tone-0 .vip-service-card__name--full {
-  font-size: clamp(1.05rem, 2.1vw, 1.42rem);
-  letter-spacing: 0.015em;
-}
-
-.vip-service-card--tone-0:hover .vip-service-card__name {
-  letter-spacing: 0.03em;
-  filter: drop-shadow(0 3px 16px rgba(0, 0, 0, 0.75));
-}
-
-/* ── Tone 1: gold kicker + Outfit caps name + refined rule ── */
+/* ── Tone 1: kicker size ── */
 .vip-service-card--tone-1 .vip-service-card__kicker {
-  color: rgba(214, 186, 130, 0.96);
-  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.38em;
   font-size: clamp(0.52rem, 0.75vw, 0.6rem);
 }
 
-.vip-service-card--tone-1 .vip-service-card__name {
+/* ── Tone 2: kicker size ── */
+.vip-service-card--tone-2 .vip-service-card__kicker {
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  font-size: clamp(0.52rem, 0.75vw, 0.6rem);
+}
+
+/* All tones: one title look — was tone-1 only (Outfit, caps, light rule) */
+.vip-service-card--tone-0 .vip-service-card__name,
+.vip-service-card--tone-0 .vip-service-card__name--full,
+.vip-service-card--tone-1 .vip-service-card__name,
+.vip-service-card--tone-1 .vip-service-card__name--full,
+.vip-service-card--tone-2 .vip-service-card__name,
+.vip-service-card--tone-2 .vip-service-card__name--full {
   font-family: 'Outfit', sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -6168,74 +6148,32 @@ a.action {
   text-transform: uppercase;
   color: rgba(252, 250, 246, 0.98);
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
-  padding-bottom: 0.5rem;
+  text-align: center;
+  line-height: 1.45;
+  max-width: 95%;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0 0.5rem;
   border-bottom: 1px solid rgba(165, 200, 232, 0.38);
   box-decoration-break: clone;
-  line-height: 1.45;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  box-shadow: none;
+  border-left: none;
+  filter: none;
+  animation: none;
 }
 
-.vip-service-card--tone-1:hover .vip-service-card__name {
+.vip-service-card--tone-0:hover .vip-service-card__name,
+.vip-service-card--tone-0:hover .vip-service-card__name--full,
+.vip-service-card--tone-1:hover .vip-service-card__name,
+.vip-service-card--tone-1:hover .vip-service-card__name--full,
+.vip-service-card--tone-2:hover .vip-service-card__name,
+.vip-service-card--tone-2:hover .vip-service-card__name--full {
   border-bottom-color: rgba(190, 220, 248, 0.55);
   letter-spacing: 0.22em;
-}
-
-/* ── Tone 2: soft kicker + Playfair / editorial body title + accent ── */
-.vip-service-card--tone-2 .vip-service-card__kicker {
-  color: rgba(235, 238, 245, 0.78);
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  font-size: clamp(0.52rem, 0.75vw, 0.6rem);
-}
-
-.vip-service-card--tone-2 .vip-service-card__name {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: clamp(1.02rem, 1.85vw, 1.32rem);
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: #faf6ee;
-  text-shadow:
-    0 2px 20px rgba(0, 0, 0, 0.55),
-    0 0 40px rgba(0, 0, 0, 0.25);
-  padding-left: 0.75rem;
-  border-left: 2px solid rgba(197, 160, 89, 0.75);
-  text-align: left;
-  align-self: center;
-  max-width: 90%;
-  line-height: 1.25;
-}
-
-.vip-service-card--tone-2 .vip-service-card__name--full {
-  text-align: center;
-  padding-left: 0;
-  border-left: none;
-  font-size: clamp(1.02rem, 1.9vw, 1.36rem);
-  font-style: italic;
-  font-weight: 700;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid rgba(165, 200, 232, 0.32);
-  box-shadow: 0 1px 0 0 rgba(197, 160, 89, 0.22);
-}
-
-.vip-service-card--tone-2:hover .vip-service-card__name {
-  border-left-color: rgba(210, 185, 130, 0.95);
   color: #fff;
-}
-
-.vip-service-card--tone-2:hover .vip-service-card__name--full {
-  border-bottom-color: rgba(190, 220, 248, 0.42);
-  box-shadow: 0 1px 0 0 rgba(197, 160, 89, 0.35);
-}
-
-@keyframes vipTitleGoldShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
