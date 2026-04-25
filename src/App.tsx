@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Footer from './components/Footer'
 import SiteLogo from './components/SiteLogo'
 import TopbarSocialLinks from './components/TopbarSocialLinks'
-import StaggeredText from './components/StaggeredText'
 import MeetTheTeam from './components/MeetTheTeam'
 import { useReveal } from './hooks/useReveal'
 import { getServicePagePath, serviceCards } from './data/serviceCards'
@@ -96,21 +95,65 @@ function App() {
         <div className="hero-bg hero-bg--static" aria-hidden />
         <div className="container hero-content">
           <div className="hero-text">
-            <StaggeredText
-              text="Komodromos Group|of Companies"
-              as="h1"
-              segmentBy="words"
-              separator="|"
-              direction="bottom"
-              delay={100}
-              duration={0.7}
-              blur={true}
-              staggerDirection="forward"
-              className="hero-h1-stagger"
-            />
+            <h1
+              className="hero-title-glass"
+              aria-label="Komodromos Group of Companies"
+            >
+              <span className="hero-title-glass__inner">
+                <span className="hero-title-glass__kg" aria-hidden="true">
+                  K. Group
+                </span>
+                <span className="hero-title-glass__line2" aria-hidden="true">
+                  OF COMPANIES
+                </span>
+              </span>
+            </h1>
           </div>
-          <div className="hero-cta-wrap reveal reveal-delay-2">
-            <a href="#services" className="hero-cta">EXPLORE OUR COMPANIES</a>
+          <div className="hero-cta-wrap hero-scroll-hint-wrap">
+            <p className="hero-scroll-hint">
+              <span className="hero-scroll-hint__label">Scroll to explore</span>
+              <span className="hero-scroll-hint__shape" aria-hidden="true">
+                <svg
+                  className="hero-scroll-hint__svg"
+                  viewBox="0 0 32 88"
+                  width="36"
+                  height="88"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g className="hero-scroll-hint__chevG hero-scroll-hint__chevG--1">
+                    <path
+                      className="hero-scroll-hint__chev hero-scroll-hint__chev--1"
+                      d="M8 34l8 8 8-8"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                  <g className="hero-scroll-hint__chevG hero-scroll-hint__chevG--2">
+                    <path
+                      className="hero-scroll-hint__chev hero-scroll-hint__chev--2"
+                      d="M8 48l8 8 8-8"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                  <g className="hero-scroll-hint__chevG hero-scroll-hint__chevG--3">
+                    <path
+                      className="hero-scroll-hint__chev hero-scroll-hint__chev--3"
+                      d="M8 62l8 8 8-8"
+                      stroke="currentColor"
+                      strokeWidth="1.45"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </p>
           </div>
         </div>
       </section>

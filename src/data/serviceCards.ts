@@ -27,7 +27,7 @@ export const serviceCards: ServiceCard[] = [
     description:
       'Aviation, sea, road, and lifestyle—routed through one private desk. We brief, book, and follow through with discretion, so your time and preferences stay non-negotiable.',
     tags: ['PRIVATE CONCIERGE', 'TRAVEL PLANNING'],
-    image: '/images/services/vip-service/vip-tour.webp',
+    image: '/images/services/vip-service/vip-all-services.webp',
     brandLogo: `${SVC_CARD_LOGO}/luxury-sky.png`,
     brandLogoBlend: 'lighten',
   },
