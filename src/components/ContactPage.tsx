@@ -88,6 +88,7 @@ export default function ContactPage() {
             >
               CONTACT
             </Link>
+            <TopbarSocialLinks variant="mobile" />
           </nav>
           <TopbarSocialLinks variant="desktop" />
           <button

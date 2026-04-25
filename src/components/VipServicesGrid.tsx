@@ -5,7 +5,11 @@ import { vipSubServices } from '../data/vipSubServices'
 export default function VipServicesGrid() {
   return (
     <>
-      <section className="vip-services-grid-section">
+      <section
+        className="vip-services-grid-section"
+        id="vip-portfolio"
+        aria-label="Concierge portfolio and services"
+      >
         <div className="container">
           <header className="vip-services-grid-header">
             <p className="vip-services-grid-eyebrow">CONCIERGE PORTFOLIO</p>

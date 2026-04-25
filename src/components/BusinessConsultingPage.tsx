@@ -559,6 +559,7 @@ export default function BusinessConsultingPage() {
             <Link to="/contact" onClick={() => setMenuOpen(false)}>
               CONTACT
             </Link>
+            <TopbarSocialLinks variant="mobile" />
           </nav>
           <TopbarSocialLinks variant="desktop" />
           <button

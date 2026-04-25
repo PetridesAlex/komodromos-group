@@ -2,7 +2,7 @@ const COVER = '/images/services/companie-services-cover'
 const VIP = '/images/services/vip-service'
 
 /** Full-bleed hero — private aviation visual */
-export const AVIATION_HERO_IMAGE = `${VIP}/Air-services.webp`
+export const AVIATION_HERO_IMAGE = `${VIP}/air-services.webp`
 
 export type AviationServiceIconId =
   | 'plane'

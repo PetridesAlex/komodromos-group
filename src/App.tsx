@@ -56,7 +56,6 @@ function App() {
                         onClick={() => setMenuOpen(false)}
                       >
                         <span className="nav-dropdown__title">{card.title}</span>
-                        <span className="nav-dropdown__meta">{card.eyebrow}</span>
                       </Link>
                     </li>
                   ))}

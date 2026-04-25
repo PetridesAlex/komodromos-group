@@ -3,9 +3,9 @@ import { MAIN_LOGO } from '../data/mainLogo'
 import { socialLinks } from '../data/socialLinks'
 
 const footerLinks = [
-  { label: 'BOOK CONSULTATION', href: '#contact' },
-  { label: 'VIEW SERVICES', href: '#services' },
-]
+  { label: 'BOOK CONSULTATION', to: '/contact' },
+  { label: 'VIEW SERVICES', to: '/#services' },
+] as const
 
 export default function Footer() {
   return (
@@ -44,7 +44,7 @@ export default function Footer() {
         <div className="footer2-actions">
           {footerLinks.map((link, i) => (
             <span key={link.label}>
-              <a href={link.href}>{link.label}</a>
+              <Link to={link.to}>{link.label}</Link>
               {i < footerLinks.length - 1 && (
                 <span className="footer2-sep">&mdash;</span>
               )}

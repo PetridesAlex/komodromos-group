@@ -25,9 +25,9 @@ export const serviceCards: ServiceCard[] = [
     eyebrow: 'PRIVATE CLIENT EXPERIENCE',
     title: 'VIP Services',
     description:
-      'Discreet lifestyle management crafted for individuals and families who expect precision, privacy, and exceptional standards.',
+      'Aviation, sea, road, and lifestyle—routed through one private desk. We brief, book, and follow through with discretion, so your time and preferences stay non-negotiable.',
     tags: ['PRIVATE CONCIERGE', 'TRAVEL PLANNING'],
-    image: `${SVC_COVER}/luxury-travel.webp`,
+    image: '/images/services/vip-service/vip-tour.webp',
     brandLogo: `${SVC_CARD_LOGO}/luxury-sky.png`,
     brandLogoBlend: 'lighten',
   },

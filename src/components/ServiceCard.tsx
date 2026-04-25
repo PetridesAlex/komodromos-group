@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const FALLBACK_IMAGE = '/images/services/vip-service/vip-services.webp'
@@ -30,6 +30,9 @@ export function ServiceCard({
   tone = 0,
 }: ServiceCardProps) {
   const [src, setSrc] = useState(image)
+  useEffect(() => {
+    setSrc(image)
+  }, [image])
   const split = splitDisplayTitle(title)
   const toneClass = `vip-service-card--tone-${tone}`
 

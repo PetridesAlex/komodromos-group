@@ -11,32 +11,33 @@ export const vipSubServices: VipSubServiceItem[] = [
   {
     slug: 'maritime',
     title: 'Maritime Services',
-    image: `${base}/Maritime-services.webp`,
+    image: `${base}/luxury-yacht.webp`,
   },
   {
     slug: 'air',
     title: 'Air Services',
-    image: `${base}/Air-services.webp`,
+    image: `${base}/air-services.webp`,
   },
   {
     slug: 'super-luxury-cars',
     title: 'Super & Luxury Cars',
-    image: `${base}/Super-luxury.webp`,
+    image: `${base}/lamporghini.webp`,
   },
   {
     slug: 'limousines',
     title: 'Limousines',
-    image: `${base}/limousines.webp`,
+    image: `${base}/limouzine.webp`,
   },
+  /** General VIP / lifestyle concierge — `public/images/services/vip-service/private-jet.webp` */
   {
     slug: 'vip-concierge',
     title: 'VIP Services',
-    image: `${base}/vip-services.webp`,
+    image: `${base}/private-jet.webp`,
   },
   {
     slug: 'fishing-scuba',
     title: 'Fishing & Scuba Diving',
-    image: `${base}/Fishing-scuba-diving.webp`,
+    image: `${base}/fishing-scuba-diving.webp`,
   },
   {
     slug: 'real-estate',
@@ -46,11 +47,11 @@ export const vipSubServices: VipSubServiceItem[] = [
   {
     slug: 'casino',
     title: 'Casino',
-    image: `${base}/Casino.webp`,
+    image: `${base}/cazino.webp`,
   },
   {
     slug: 'vip-tour-island',
     title: 'VIP Tour Around the Island',
-    image: `${base}/Vip-tour-around-the-Island.webp`,
+    image: `${base}/vip-mercendes-tour.webp`,
   },
 ]

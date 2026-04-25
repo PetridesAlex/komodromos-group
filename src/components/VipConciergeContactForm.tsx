@@ -28,6 +28,7 @@ export default function VipConciergeContactForm() {
     <section className="vip-concierge-form-section" aria-labelledby="vip-concierge-form-heading">
       <div className="vip-concierge-form-section-glow vip-concierge-form-section-glow--1" aria-hidden />
       <div className="vip-concierge-form-section-glow vip-concierge-form-section-glow--2" aria-hidden />
+      <div className="vip-concierge-form-section-glow vip-concierge-form-section-glow--3" aria-hidden />
       <div className="container">
         <header className="vip-concierge-form-header">
           <p className="vip-concierge-form-eyebrow">PRIVATE INQUIRY</p>
