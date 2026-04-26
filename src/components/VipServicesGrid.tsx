@@ -28,7 +28,7 @@ export default function VipServicesGrid() {
                 kicker={item.kicker}
                 nameLine={item.nameLine}
                 tone={(index % 3) as 0 | 1 | 2}
-                to="/contact"
+                to={item.to ?? '/contact'}
                 state={{
                   serviceInterest: 'VIP Services',
                   vipSubService: item.title,

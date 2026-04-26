@@ -8,6 +8,8 @@ export type VipSubServiceItem = {
   /** When set, overrides automatic title split (kicker + name lines). */
   kicker?: string
   nameLine?: string
+  /** Custom link; default ServiceCard target is `/contact`. */
+  to?: string
 }
 
 export const vipSubServices: VipSubServiceItem[] = [
@@ -24,6 +26,7 @@ export const vipSubServices: VipSubServiceItem[] = [
     kicker: 'Air',
     nameLine: 'Services & experiences',
     image: `${base}/air-services.webp`,
+    to: '/services/air',
   },
   {
     slug: 'super-luxury-cars',
